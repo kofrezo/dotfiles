@@ -10,14 +10,18 @@ execute pathogen#infect()
 " Enable filetype plugins
 filetype plugin indent on
 
-" Enable and setup vim-airline plugin
-set timeoutlen=50
-set laststatus=2
-let g:airline_powerline_fonts=0
-
 " Setup basic appereance
-syntax on
+syntax enable
 set expandtab
 set enc=utf-8
 set tabstop=4
 set colorcolumn=80
+colorscheme darcula
+
+" Setup vim-jedi autocompletion
+let g:jedi#popup_on_dot = 0
+let g:jedi#popup_select_first = 0
+
+" Setup vim-lightline statusbar
+set laststatus=2
+let g:lightline = { 'colorscheme': 'powerline', }

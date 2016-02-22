@@ -3,7 +3,7 @@
 ## UPDATE SUBMODULES ##########################################################
 
 echo "* updating submodules"
-git submodule update
+git submodule update --recursive
 
 ## SETUP VIM ##################################################################
 

@@ -1,12 +1,12 @@
-[submodule ".vim/bundle/vim-airline"]
-	path = .vim/bundle/vim-airline
-	url = https://github.com/vim-airline/vim-airline.git
 [submodule ".vim/bundle/vim-pathogen"]
 	path = .vim/bundle/vim-pathogen
 	url = https://github.com/tpope/vim-pathogen.git
-[submodule ".vim/bundle/vim-airline-themes"]
-	path = .vim/bundle/vim-airline-themes
-	url = https://github.com/vim-airline/vim-airline-themes.git
-[submodule "fonts"]
-	path = fonts
-	url = https://github.com/powerline/fonts.git
+[submodule ".vim/bundle/vim-jedi"]
+	path = .vim/bundle/vim-jedi
+	url = https://github.com/davidhalter/jedi-vim.git
+[submodule ".vim/bundle/vim-lightline"]
+	path = .vim/bundle/vim-lightline
+	url = https://github.com/itchyny/lightline.vim.git
+[submodule ".vim/bundle/vim-darcula"]
+	path = .vim/bundle/vim-darcula
+	url = https://github.com/blueshirts/darcula.git
