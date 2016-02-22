@@ -11,6 +11,7 @@ execute pathogen#infect()
 filetype plugin indent on
 
 " Enable and setup vim-airline plugin
+set timeoutlen=50
 set laststatus=2
 let g:airline_powerline_fonts=0
 
