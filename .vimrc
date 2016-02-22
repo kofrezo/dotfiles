@@ -12,8 +12,7 @@ filetype plugin indent on
 
 " Enable and setup vim-airline plugin
 set laststatus=2
-let g:airline_theme = 'luna'
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts=0
 
 " Setup basic appereance
 syntax on
