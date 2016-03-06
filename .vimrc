@@ -25,3 +25,7 @@ let g:jedi#popup_select_first = 0
 " Setup vim-lightline statusbar
 set laststatus=2
 let g:lightline = { 'colorscheme': 'powerline', }
+
+" Setup vim-nerdtree sidebar
+autocmd vimenter * NERDTree
+
