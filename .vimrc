@@ -1,20 +1,21 @@
 " Vim Editor Setup
 "
 " author : daniel.kroeger@kofrezo.io
-" version: 22.02.2016
+" version: 12.03.2016
 
 " Enable pathogen plugin autoloader
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 
 " Enable filetype plugins
-filetype plugin indent on
+"filetype plugin indent on
 
 " Setup basic appereance
 syntax enable
 set expandtab
 set enc=utf-8
 set tabstop=4
+set shiftwidth=4
 set colorcolumn=80
 colorscheme darcula
 
