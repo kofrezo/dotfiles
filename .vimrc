@@ -8,7 +8,11 @@ runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 
 " Enable filetype plugins
+<<<<<<< HEAD
 "filetype plugin indent on
+=======
+" filetype plugin indent on
+>>>>>>> dfab76ff2146e3239aaa667d4536ea799c83bc32
 
 " Setup basic appereance
 syntax enable

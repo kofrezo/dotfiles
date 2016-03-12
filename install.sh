@@ -3,6 +3,7 @@
 ## UPDATE SUBMODULES ##########################################################
 
 echo "* updating submodules"
+git submodule init
 git submodule update --recursive
 
 ## SETUP VIM ##################################################################
@@ -24,9 +25,6 @@ if [ -f ~/.vimrc ] || [ ! -x ~/.vimrc ]; then
     echo "* installing new .vimrc"
     ln -s $(pwd)/.vimrc ~/.vimrc
 fi
-
-echo "* Installing powerline fonts for vim airline plugin"
-sh $(pwd)/fonts/install.sh
 
 ## SETUP BASH #################################################################
 
