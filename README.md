@@ -8,6 +8,7 @@ $HOME as fast a possible on new systems ;-)
 * git
 * vim
 * python >= 2.7
+* vim-python-jedi
 
 ## Installation
 
