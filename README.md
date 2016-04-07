@@ -9,6 +9,7 @@ $HOME as fast a possible on new systems ;-)
 * vim
 * python >= 2.7
 * vim-python-jedi
+* python-flake8
 
 ## Installation
 
