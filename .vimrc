@@ -10,9 +10,10 @@ execute pathogen#infect()
 " Enable filetype plugins
 " filetype plugin indent on
 
-" Setup basic appereance
+" Setup basic appearance
 syntax enable
 set expandtab
+set number
 set enc=utf-8
 set tabstop=4
 set shiftwidth=4
