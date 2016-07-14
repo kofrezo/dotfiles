@@ -1,7 +1,7 @@
 " Vim Editor Setup
 "
 " author : daniel.kroeger@kofrezo.io
-" version: 12.03.2016
+" version: 14.07.2016
 
 " Enable pathogen plugin autoloader
 runtime bundle/vim-pathogen/autoload/pathogen.vim
@@ -31,3 +31,9 @@ let g:lightline = { 'colorscheme': 'powerline', }
 " Setup vim-nerdtree sidebar
 autocmd vimenter * NERDTree
 
+" Enable code folding
+set foldmethod=indent
+set foldlevel=99
+nnoremap <space> za
+nnoremap <F8> zM
+nnoremap <F9> zR
