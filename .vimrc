@@ -29,7 +29,7 @@ set laststatus=2
 let g:lightline = { 'colorscheme': 'powerline', }
 
 " Setup vim-nerdtree sidebar
-autocmd vimenter * NERDTree
+let g:nerdtree_tabs_open_on_console_startup=1
 
 " Enable code folding
 set foldmethod=indent
@@ -37,3 +37,6 @@ set foldlevel=99
 nnoremap <space> za
 nnoremap <F8> zM
 nnoremap <F9> zR
+
+" Remove trailing white spaces.
+autocmd BufWritePre * %s/\s\+$//e
