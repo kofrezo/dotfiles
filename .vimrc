@@ -11,7 +11,7 @@ execute pathogen#infect()
 " filetype plugin indent on
 
 " Setup basic appearance
-syntax enable
+syntax on
 set expandtab
 set number
 set enc=utf-8
