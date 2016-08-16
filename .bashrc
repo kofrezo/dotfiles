@@ -113,3 +113,38 @@ if ! shopt -oq posix; then
 fi
 
 export TERM='xterm-256color'
+
+PROMPT_COMMAND=__prompt_command
+
+__prompt_command() {
+    local EXIT=$?
+    PS1=""
+
+    local RCol='\[\e[0m\]'
+    local Gry='\[\e[30;1m\]'
+    local Red='\[\e[0;31m\]'
+    local Gre='\[\e[0;32m\]'
+    local BYel='\[\e[1;33m\]'
+    local BBlu='\[\e[1;34m\]'
+    local Pur='\[\e[0;35m\]'
+
+    # history command number
+    PS1="\n(\!)"
+    # number of files and size in directory
+    PS1+="-(\$(ls -1a | wc -l | sed 's: ::g') files, \$(ls -lah | grep -m 1 total | sed 's/total //'))"
+    # current path
+    PS1+="-(\$(pwd))\n"
+
+    # user and hostname
+    PS1+="(${BBlu}\u@\h${RCol})"
+
+    # exit code of last command
+    if [ $EXIT -gt 0 ]; then
+        PS1+="-(${Red}${EXIT}${RCol})"
+    else
+        PS1+="-(${Gre}${EXIT}${RCol})"
+    fi
+
+    # current time in 24h format
+    PS1+="-(\t) "
+}
