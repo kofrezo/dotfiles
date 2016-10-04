@@ -116,6 +116,22 @@ export TERM='xterm-256color'
 
 PROMPT_COMMAND=__prompt_command
 
+__get_git_info() {
+    # get current branch
+    local branch=$(git branch 2> /dev/null | grep '*' | cut -d " " -f 2)
+    if [[ "$branch" == "" ]]; then
+        echo $branch
+    else
+        # get modifications
+        local info=$(git status --porcelain  | cut -b 1,2 | uniq | tr "\n" ",")
+        if [[ $info != "" ]]; then
+            local info=" -> ${info::-1}"
+        fi
+
+        echo "-(${branch}${info})"
+    fi
+}
+
 __prompt_command() {
     local EXIT=$?
     PS1=""
@@ -133,7 +149,9 @@ __prompt_command() {
     # number of files and size in directory
     PS1+="-(\$(ls -1a | wc -l | sed 's: ::g') files, \$(ls -lah | grep -m 1 total | sed 's/total //'))"
     # current path
-    PS1+="-(\$(pwd))\n"
+    PS1+="-(\$(pwd))"
+    # git info about git if available
+    PS1+="\$(__get_git_info)\n"
 
     # user and hostname
     PS1+="(${BBlu}\u@\h${RCol})"
