@@ -40,3 +40,11 @@ nnoremap <F9> zR
 
 " Remove trailing white spaces.
 autocmd BufWritePre * %s/\s\+$//e
+
+" Run python flake8 check on every save
+autocmd BufWritePost *.py call Flake8()
+
+" Run PHP syntax check on every save
+setlocal makeprg=php\ -l\ %
+setlocal errorformat=%m\ in\ %f\ on\ line\ %l,%-GErrors\ parsing\ %f,%-G
+nnoremap <buffer> <silent> <F7> :update<bar>sil! make<bar>cwindow<cr>
