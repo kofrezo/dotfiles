@@ -1,0 +1,10 @@
+[global_config]
+enable_real_transparency = true
+
+[profiles]
+[[default]]
+background_type = transparent
+background_darkness = 0.9
+scrollback_lines = 100000
+font = "Droid Serif Bold 8"
+
