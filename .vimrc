@@ -30,6 +30,7 @@ let g:lightline = { 'colorscheme': 'powerline', }
 
 " Setup vim-nerdtree sidebar
 let g:nerdtree_tabs_open_on_console_startup=1
+noremap <F10> :NERDTreeToggle <CR>
 
 " Enable code folding
 set foldmethod=indent
