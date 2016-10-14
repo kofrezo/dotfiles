@@ -36,8 +36,8 @@ noremap <F10> :NERDTreeToggle <CR>
 set foldmethod=indent
 set foldlevel=99
 nnoremap <space> za
-nnoremap <F8> zM
-nnoremap <F9> zR
+nnoremap <F7> zM
+nnoremap <F8> zR
 
 " Remove trailing white spaces.
 autocmd BufWritePre * %s/\s\+$//e
@@ -48,4 +48,4 @@ autocmd BufWritePost *.py call Flake8()
 " Run PHP syntax check on every save
 setlocal makeprg=php\ -l\ %
 setlocal errorformat=%m\ in\ %f\ on\ line\ %l,%-GErrors\ parsing\ %f,%-G
-nnoremap <buffer> <silent> <F7> :update<bar>sil! make<bar>cwindow<cr>
+nnoremap <buffer> <silent> <F6> :update<bar>sil! make<bar>cwindow<cr>
