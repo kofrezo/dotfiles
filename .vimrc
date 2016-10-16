@@ -36,8 +36,8 @@ noremap <F10> :NERDTreeToggle <CR>
 set foldmethod=indent
 set foldlevel=99
 nnoremap <space> za
-nnoremap <F7> zM
-nnoremap <F8> zR
+nnoremap <F8> zM
+nnoremap <F9> zR
 
 " Remove trailing white spaces.
 autocmd BufWritePre * %s/\s\+$//e
