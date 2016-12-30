@@ -16,3 +16,6 @@
 [submodule ".vim/bundle/vim-nerdtree-tabs"]
 	path = .vim/bundle/vim-nerdtree-tabs
 	url = https://github.com/jistr/vim-nerdtree-tabs.git
+[submodule ".vim/bundle/vim-syntastic"]
+	path = .vim/bundle/vim-syntastic
+	url = https://github.com/scrooloose/syntastic
