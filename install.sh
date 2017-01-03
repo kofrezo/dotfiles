@@ -15,6 +15,8 @@ sudo apt-get install git
 echo '* updating submodules'
 git submodule init
 git submodule update --recursive
+git submodule foreach git checkout master
+git submodule foreach git pull origin master
 
 ## INSTALL REQUIRMENTS ########################################################
 
