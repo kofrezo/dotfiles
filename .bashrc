@@ -165,4 +165,9 @@ __prompt_command() {
 
     # current time in 24h format
     PS1+="-(\t) "
+
+    # enable virtual environment if venv folder exists
+    if [[ -d ./venv ]] && [[ $VIRTUAL_ENV == "" ]]; then
+        source venv/bin/activate
+    fi
 }
