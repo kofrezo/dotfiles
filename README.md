@@ -1,15 +1,7 @@
 # dotfiles
 
-Collection of my setup for the linux or mac dotfiles to feel comfotable and
-$HOME as fast a possible on new systems ;-)
-
-## Requirements
-
-* git
-* vim
-* python >= 2.7
-* vim-python-jedi
-* python-flake8 >= 3.0.4
+Collection of my setup for the linux dotfiles to feel comfotable and $HOME as
+fast a possible on new systems ;-)
 
 ## Installation
 

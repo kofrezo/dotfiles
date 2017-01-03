@@ -1,5 +1,15 @@
 #!/bin/bash
 
+## ENSURE VIM #################################################################
+
+echo '* installing vim'
+sudo apt-get install vim
+
+## ENSURE GIT #################################################################
+
+echo '* installing git'
+sudo apt-get install git
+
 ## UPDATE SUBMODULES ##########################################################
 
 echo '* updating submodules'
@@ -9,7 +19,7 @@ git submodule update --recursive
 ## INSTALL REQUIRMENTS ########################################################
 
 echo '* installing pip dependencies'
-pip install -r requirements.txt &> /dev/null
+pip install -r requirements.txt
 
 ## SETUP VIM ##################################################################
 
@@ -52,4 +62,22 @@ if [[ -f ~/.bashrc ]]; then
 
     echo '* linking .bashrc'
     ln -s $(pwd)/.bashrc ~/.bashrc
+fi
+
+## SETUP TERMINATOR ###########################################################
+
+echo '* installing terminator if not yet done'
+sudo apt-get install terminator
+
+if [[ -d ~/.config/terminator ]]; then
+    if [[ -L ~/.config/terminator ]]; then
+        echo '* deleting old symlink'
+        unlink ~/.config/terminator
+    else
+        echo '* creating backup of existing terminator'
+        mv ~/.config/terminator ~/.config/terminator.bak
+    fi
+
+    echo '* installing terminator config'
+    ln -s $(pwd)/.config/terminator ~/.config/terminator
 fi
