@@ -1,0 +1,119 @@
+#!/bin/bash
+
+## INSTALL PKGS ###############################################################
+
+echo 'DEBIAN PACKAGES'
+
+pkgs="vim git htop atop glances"
+echo '* Installing $pkgs'
+
+sudo apt-get install -y $pkgs
+
+echo
+
+## INSTALL PIP PKGS ###########################################################
+
+echo 'PYTHON MODULES'
+
+echo '* Installing pip pkgs'
+pip install -r requirements.txt
+
+echo
+
+## INSTALL NEOVIM #############################################################
+
+echo 'NEOVIM'
+
+if [[ $(lsb_release -r | grep -o [0-9] | head -n 1) -le 8 ]]; then
+    echo '* Enabling jessie backports'
+    echo 'deb http://ftp.debian.org/debian jessie-backports main' \
+        > /etc/apt/sources.list.d/backports.list
+
+    sudo apt-get update
+    sudo apt-get -t jessie-backports install -y neovim python-neovim \
+        python3-neovim
+else
+    sudo apt-get install -y neovim python-neovim python3-neovim
+fi
+
+echo
+
+## UPDATE SUBMODULES ##########################################################
+
+echo 'VIM'
+
+echo '* updating vim submodules'
+git submodule init
+git submodule update --recursive
+git submodule foreach git checkout master
+git submodule foreach git pull origin master
+
+
+if [[ -d ~/.vim ]]; then
+    if [[ -L ~/.vim ]]; then
+        echo '* Deleting old symlink'
+        unlink ~/.vim
+    else
+        echo '* Creating backup of existing .vim folder'
+        mv ~/.vim ~/.vim.bak
+    fi
+
+    echo '* Linking new .vim folder'
+    ln -s $(pwd)/.vim ~/.vim
+fi
+
+if [[ -f ~/.vimrc  ]]; then
+    if [[ -L ~/.vimrc ]]; then
+        echo '* Deleting old symlink'
+        unlink ~/.vimrc
+    else
+        echo '* Creating backup of exiting .vimrc'
+        mv ~/.vimrc ~/.vimrc.bak
+    fi
+
+    echo '* Linking new .vimrc'
+    ln -s $(pwd)/.vimrc ~/.vimrc
+fi
+
+echo
+
+## SETUP BASH #################################################################
+
+echo 'BASH'
+
+if [[ -f ~/.bashrc ]]; then
+    if [[ -L ~/.bashrc ]]; then
+        echo '* Deleting old symlink'
+        unlink ~/.bashrc
+    else
+        echo '* Creating backup of existing .bashrc'
+        mv ~/.bashrc ~/.bashrc.bak
+    fi
+
+    echo '* Linking .bashrc'
+    ln -s $(pwd)/.bashrc ~/.bashrc
+fi
+
+echo
+
+## SETUP TERMINATOR ###########################################################
+
+echo 'TERMINATOR'
+
+echo '* Installing terminator if not yet done'
+sudo apt-get install terminator
+
+if [[ -d ~/.config/terminator ]]; then
+    if [[ -L ~/.config/terminator ]]; then
+        echo '* Deleting old symlink'
+        unlink ~/.config/terminator
+    else
+        echo '* Creating backup of existing terminator'
+        mv ~/.config/terminator ~/.config/terminator.bak
+    fi
+
+    echo '* Installing terminator config'
+    ln -s $(pwd)/.config/terminator ~/.config/terminator
+fi
+
+echo
