@@ -4,7 +4,7 @@
 
 echo 'DEBIAN PACKAGES'
 
-pkgs="vim git htop atop glance mtr python-pudb python3-pudb"
+pkgs="vim git htop atop glances mtr python-pudb python3-pudb"
 echo '* Installing $pkgs'
 
 sudo apt-get install -y $pkgs
