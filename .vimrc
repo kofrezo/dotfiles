@@ -54,3 +54,6 @@ let g:syntastic_check_on_wq = 1
 
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_php_checkers = ['php']
+
+" Autopep8 formatting
+autocmd FileType python map <buffer> <F11> :call Autopep8()<CR>

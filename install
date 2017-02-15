@@ -40,9 +40,10 @@ if [[ -d ~/.vim ]]; then
         mv ~/.vim ~/.vim.bak
     fi
 
-    echo '* Linking new .vim folder'
-    ln -s $(pwd)/.vim ~/.vim
 fi
+
+echo '* Linking new .vim folder'
+ln -s $(pwd)/.vim ~/.vim
 
 if [[ -f ~/.vimrc  ]]; then
     if [[ -L ~/.vimrc ]]; then
@@ -53,9 +54,10 @@ if [[ -f ~/.vimrc  ]]; then
         mv ~/.vimrc ~/.vimrc.bak
     fi
 
-    echo '* Linking new .vimrc'
-    ln -s $(pwd)/.vimrc ~/.vimrc
 fi
+
+echo '* Linking new .vimrc'
+ln -s $(pwd)/.vimrc ~/.vimrc
 
 echo
 
@@ -71,10 +73,10 @@ if [[ -f ~/.bashrc ]]; then
         echo '* Creating backup of existing .bashrc'
         mv ~/.bashrc ~/.bashrc.bak
     fi
-
-    echo '* Linking .bashrc'
-    ln -s $(pwd)/.bashrc ~/.bashrc
 fi
+
+echo '* Linking .bashrc'
+ln -s $(pwd)/.bashrc ~/.bashrc
 
 echo
 
@@ -94,8 +96,9 @@ if [[ -d ~/.config/terminator ]]; then
         mv ~/.config/terminator ~/.config/terminator.bak
     fi
 
-    echo '* Installing terminator config'
-    ln -s $(pwd)/.config/terminator ~/.config/terminator
 fi
+
+echo '* Installing terminator config'
+ln -s $(pwd)/.config/terminator ~/.config/terminator
 
 echo
