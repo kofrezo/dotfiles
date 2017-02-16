@@ -1,9 +1,6 @@
 [submodule ".vim/bundle/vim-pathogen"]
 	path = .vim/bundle/vim-pathogen
 	url = https://github.com/tpope/vim-pathogen.git
-[submodule ".vim/bundle/vim-jedi"]
-	path = .vim/bundle/vim-jedi
-	url = https://github.com/davidhalter/jedi-vim.git
 [submodule ".vim/bundle/vim-lightline"]
 	path = .vim/bundle/vim-lightline
 	url = https://github.com/itchyny/lightline.vim.git
@@ -28,3 +25,6 @@
 [submodule ".vim/bundle/vim-autopep8"]
 	path = .vim/bundle/vim-autopep8
 	url = https://github.com/tell-k/vim-autopep8.git
+[submodule ".vim/bundle/vim-jedi"]
+	path = .vim/bundle/vim-jedi
+	url = https://github.com/davidhalter/jedi-vim.git
