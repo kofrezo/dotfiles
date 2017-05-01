@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+xrandr --output VGA-1 --mode 1920x1080 --rate 60
+
+xcompmgr &
+
+sh $HOME/.fehbg
+
+conky &

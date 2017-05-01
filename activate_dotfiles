@@ -1,0 +1,69 @@
+#!/bin/bash -e
+#
+# Copyright (c) 2017, Daniel Kroeger
+
+source bootstrap
+
+# We need sudo permissions to install software globally
+echo 'Fear not we need sudo access to install software globally'
+sudo -v
+echo ''
+
+echo -n 'Installing needed software and python modules for vim setup'
+sudo apt install -y vim-python-jedi python-pip cowsay &> /dev/null
+sudo pip install -r requirements.txt &> /dev/null
+echo -e "${GREEN} done${RESET}"
+
+echo -n 'Updating vim plugins'
+git submodule init &> /dev/null
+git submodule update --init --recursive &> /dev/null
+git submodule foreach git checkout master &> /dev/null
+git submodule foreach git pull origin master &> /dev/null
+echo -e "${GREEN} done${RESET}"
+
+if [[ -L ~/.vim ]]; then
+    unlink ~/.vim
+elif [[ -d ~/.vim ]]; then
+    echo -e "${ORANGE}Found existing ~/.vim folder creating backup to ~/.vim.bak ${RESET}"
+    mv ~/.vim ~/.vim.bak
+fi
+
+echo -n 'Activating .vim folder'
+ln -s $(pwd)/.vim ~/.vim
+echo -e "${GREEN} done${RESET}"
+
+if [[ -L ~/.vimrc ]]; then
+    unlink ~/.vimrc
+elif [[ -f ~/.vimrc ]]; then
+    echo -e "${ORANGE}Found existing ~/.vimrc file creating backup to ~/.vimrc.bak${RESET}"
+    mv ~/.vimrc ~/.vimrc.bak
+fi
+
+echo -n 'Activating .vimrc file'
+ln -s $(pwd)/.vimrc ~/.vimrc
+echo -e "${GREEN} done${RESET}"
+
+if [[ -L ~/.bashrc ]]; then
+    unlink ~/.bashrc
+elif [[ -f ~/.bashrc ]]; then
+    echo -e "${ORANGE}Found existing ~/.bashrc file creating backup to ~/.bashrc.bak${RESET}"
+    mv ~/.bashrc ~/.bashrc.bak
+fi
+
+echo -n 'Activating .bashrc'
+ln -s $(pwd)/.bashrc ~/.bashrc
+echo -e "${GREEN} done${RESET}"
+
+if [[ -L ~/.config/terminator ]]; then
+    unlink ~/.config/terminator
+elif [[ -d ~/.conifg/terminator ]]; then
+    echo -e "${ORANGE}Found existing ~/.config/terminator folder creating backup to ~/.config/terminator${RESET}"
+    mv ~/.config/terminator ~/.config/terminator.bak
+fi
+
+echo -n 'Activating terminator folder'
+ln -s $(pwd)/.config/terminator ~/.config/terminator
+echo -e "${GREEN} done${RESET}"
+
+echo
+cowsay 'Tada - All done! restart bash to take all changes effect'

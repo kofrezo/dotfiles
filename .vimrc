@@ -1,14 +1,10 @@
 " Vim Editor Setup
 "
-" author : daniel.kroeger@kofrezo.io
-" version: 14.07.2016
+" Copyright (c) 2017, Daniel Kroeger
 
 " Enable pathogen plugin autoloader
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
-
-" Enable filetype plugins
-" filetype plugin indent on
 
 " Setup basic appearance
 syntax on
@@ -23,6 +19,7 @@ colorscheme darcula
 " Setup vim-jedi autocompletion
 let g:jedi#popup_on_dot = 0
 let g:jedi#popup_select_first = 0
+let g:jedi#show_call_signatures = 0
 
 " Setup vim-lightline statusbar
 set laststatus=2
