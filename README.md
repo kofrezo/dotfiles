@@ -3,11 +3,7 @@
 This repository contains shell scripts and documentation to install awesome
 minimal Debian Stretch with awesome dotfiles.
 
-![grub](https://raw.githubusercontent.com/kofrezo/dotfiles/master/Screenshots/dotfiles_boot.png)
-![login](https://raw.githubusercontent.com/kofrezo/dotfiles/master/Screenshots/dotfiles_login.png)
-![tty](https://raw.githubusercontent.com/kofrezo/dotfiles/master/Screenshots/dotfiles_tty.png)
-![desktop](https://raw.githubusercontent.com/kofrezo/dotfiles/master/Screenshots/dotfiles_desktop.png)
-![terminal](https://raw.githubusercontent.com/kofrezo/dotfiles/master/Screenshots/dotfiles_terminal.png)
+See SCREENSHOTS.md for example screenshots when everything is applied.
 
 ## Debian Stretch Installation
 
