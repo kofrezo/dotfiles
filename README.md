@@ -49,18 +49,38 @@ Afterwards refresh grub and activate settings with the following command.
 To install and configure openbox window manager (not a full desktop environment)
 proceed with the following steps.
 
-    sudo apt install xinit openbox
+    sudo apt install xinit x11-server-utils openbox obmenu
 
 You will want to checkout rc.xml for keybindings. You can also use the
 activate_openbox with my dotfiles a bit more on the bottom. But be aware that
 this will replace your ~/.config/openbox settings. But don't worry it creates
 a backup at ~/.config/openbox.bak.
 
+HINT: If you have issues with window placement on wrong monitor etc. check the
+~/.config/openbox/rc.xml there is a placement section where you can specify
+where windows should spwan.
+
+### Terminal Emulator
+
+Terminator is a powerful terminal emulator written in python having useful
+shortcuts to split terminal and will increase your productivty on the console.
+
+    sudo apt install terminator gtk2-engines
+
+You probably have to restart your computer once otherwise terminator might just
+not work (not launch) because of dbus.
+
+
 ### Screen Resolution
 
 The default screen resolution is rather low so use xrandr to detect a good one
 and when you are happy add it to the openbox autostart script. I recommend it
 to put it to the top so that you don't see your screen flickering on login.
+
+Two things before you need to reboot your computer once after installing
+Openbox Window Manager otherwise permissions for video card might not be set
+properly. Second you can run xrandr only from within xsession so login to
+console and type startx if not already done.
 
     # List possible screens and resoltions
     xrandr
@@ -74,23 +94,14 @@ to put it to the top so that you don't see your screen flickering on login.
     # xrandr --output VGA-1 --mode 1920x1080 --rate 60
 
 
-### Terminal Emulator
-
-Terminator is a powerful terminal emulator written in python having useful
-shortcuts to split terminal and will increase your productivty on the console.
-
-    sudo apt install terminator
-
-You can now use startx login and right click to start a terminal emulator.
-
 ### Transparency
 
 To enable transparency you need a composite manager such as xcompmgr. Install
 it and add it to you openbox autostart.
 
-   sudo apt install xcompmgr
-   vim ~/.config/openbox/autostart
-   # xcompmgr &
+    sudo apt install xcompmgr
+    vim ~/.config/openbox/autostart
+    # xcompmgr &
 
 ### Wallpaper
 
@@ -108,10 +119,10 @@ start it on login.
 
 ### Window Manager Theme
 
-To enable simple elegant arc theme instead of default baby blue ones install the
-arc-theme and gtk2-engine.
+To enable simple elegant arc theme instead of default baby blue ones install
+the arc-theme.
 
-    sudo apt install gtk2-engine git
+    sudo apt install git
     git config user.name Your Name
     git config user.email your.name@example.com
     mkdir ~/Sourcecode
@@ -153,6 +164,9 @@ If your Net and Wifi graph does not work out of the box it is very likely that
 your adapters are named differently. Just get your adapter name with the ip
 command and replace them in ~/.conkyrc and ~/.lua/clock_rings.lua
 
+HINT: You can specify xinerama_head option to specify on which monitor it
+should get displayed when you have multi monitor setup.
+
 ### Grub Background Image
 
 To apply the current background also to Grub copy the grub image to system and
@@ -176,7 +190,7 @@ To change the resolution of the console add video parameter to kernel.
 
 Login to console and type startx is rather annoying and can be done via a
 graphical tool. These tools are called Display Manager one of them is lightdm.
-lightlocker will exten lightdm to support locking your screen.
+lightlocker will extend lightdm to support locking your screen.
 
     sudo apt install lightdm light-locker
     cd dotfiles
@@ -203,6 +217,6 @@ computer. You can of course install the browser you prefer.
 
 ### Additional Software
 
-    sudo apt install gimp nautilus opmenu thunderbird
+    sudo apt install gimp nautilus obmenu thunderbird
 
 Copyright (c) 2017, Daniel Kröger

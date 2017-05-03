@@ -27,7 +27,8 @@ conky.config={
     temperature_unit="celsius",
     default_color="FFFFFF",
     lua_load=" ~/.lua/scripts/clock_rings.lua",
-    lua_draw_hook_pre="clock_rings"
+    lua_draw_hook_pre="clock_rings",
+    xinerama_head=2
 }
 conky.text=[[
 ${font Neuropolitical:size=42}${time %e}
