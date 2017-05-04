@@ -4,15 +4,18 @@
 
 source bootstrap
 
-# We need sudo permissions to install software globally
-echo 'Fear not we need sudo access to install software globally'
-sudo -v
-echo ''
+if [[ "$1" != "--ignore-packages" ]]; then
 
-echo -n 'Installing needed software and python modules for vim setup'
-sudo apt install -y vim-python-jedi python-pip cowsay &> /dev/null
-sudo pip install -r requirements.txt &> /dev/null
-echo -e "${GREEN} done${RESET}"
+    # We need sudo permissions to install software globally
+    echo 'Fear not we need sudo access to install software globally'
+    sudo -v
+    echo ''
+
+    echo -n 'Installing needed software and python modules for vim setup'
+    sudo apt install -y vim-python-jedi python-pip cowsay &> /dev/null
+    sudo pip install -r requirements.txt &> /dev/null
+    echo -e "${GREEN} done${RESET}"
+fi
 
 echo -n 'Updating vim plugins'
 git submodule init &> /dev/null
