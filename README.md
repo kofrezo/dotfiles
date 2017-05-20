@@ -5,6 +5,10 @@ minimal Debian Stretch with awesome dotfiles.
 
 See SCREENSHOTS.md for example screenshots when everything is applied.
 
+NOTE: If you have installed Windows 10 or later in parallel using UEFI make
+sure to disable secure boot and start Debian installer in UEFI mode. Otherwise
+it will not detect Windows and setup Dualboot.
+
 ## Debian Stretch Installation
 
 Download and create a CD-ROM or USB-Stick with Debian Stretch and make a minimal
@@ -15,7 +19,7 @@ following steps.
 
 First of all protect your home folder from spying eyes.
 
-chmod 0750 $HOME
+    chmod 0750 $HOME
 
 ### Make your system usable installing vim ;-)
 
@@ -49,7 +53,7 @@ Afterwards refresh grub and activate settings with the following command.
 To install and configure openbox window manager (not a full desktop environment)
 proceed with the following steps.
 
-    sudo apt install xinit x11-server-utils openbox obmenu
+    sudo apt install xinit x11-xserver-utils openbox obmenu
 
 You will want to checkout rc.xml for keybindings. You can also use the
 activate_openbox with my dotfiles a bit more on the bottom. But be aware that
@@ -68,7 +72,8 @@ shortcuts to split terminal and will increase your productivty on the console.
     sudo apt install terminator gtk2-engines
 
 You probably have to restart your computer once otherwise terminator might just
-not work (not launch) because of dbus.
+not work (not launch) because of dbus. For I also had to first install lightdm
+(see later section) before terminator wall startable.
 
 
 ### Screen Resolution
@@ -82,7 +87,7 @@ Openbox Window Manager otherwise permissions for video card might not be set
 properly. Second you can run xrandr only from within xsession so login to
 console and type startx if not already done.
 
-    # List possible screens and resoltions
+    # List possible screens and resolution
     xrandr
     # Try it out
     xrandr --output VGA-1 --mode 1920x1080 --rate 60
@@ -186,7 +191,7 @@ To change the resolution of the console add video parameter to kernel.
     # GRUB_CMDLINE_LINUX_DEFAULT="quiet video=1600x1200-32"
     sudo update-grub2
 
-### Gnome Display Manager
+### Lightdm Display Manager
 
 Login to console and type startx is rather annoying and can be done via a
 graphical tool. These tools are called Display Manager one of them is lightdm.
@@ -214,6 +219,48 @@ computer. You can of course install the browser you prefer.
     mkdir ~/Downloads
     curl https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb > ~/Downloads/google-chrome-stable_current_amd64.deb
     sudo dpkg -i ~/Downloads/google-chrome-stable_current_amd64.deb
+    sudo apt install -f
+
+### Sound
+
+If you have multiple sound devices you must configure the default one. Replace
+0 and 2 with the sound card and device you determined using aplay -l.
+
+    sudo apt install alsa-utils
+    sudo aplay -l
+    sudo vim ~/.asoundrc
+    # defaults.pcm.!card 2
+    # defaults.ctl.!card 2
+    # defaults.pcm.!device 0
+    # defaults.ctl.!device 0
+
+You can use alsamixer to regulate sound but normally every app has a volume
+control built in.
+
+### Enrypted Home Folder
+
+    sudo apt install ecryptfs-utils
+    sudo modprobe ecryptfs-utils
+    sudo vim /etc/modules-load.d/modules.conf
+    # ecrytptfs
+    sudo passwd root
+    sudo reboot
+    <CTRL><ALT><F1>
+    # Login as root
+    ecryptfs-migrate-home -u <USERNAME>
+    <CRTL><ALT><F7>
+    # Login as usual and open a terminal
+    ecryptfs-unwrap-passphrase
+    # Note that one in a secure place
+    rm -rf /home/<username>.*
+    # If you use sudo lock root account back again
+    sudo passwd -l root
+
+### Enrypted Swap Partition
+
+    sudo apt install cryptsetup
+    sudo ecryptds-setup-swap
+    sudo reboot
 
 ### Additional Software
 

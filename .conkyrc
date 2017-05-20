@@ -46,16 +46,16 @@ ${color FFFFFF}${font Neuropolitical:size=8}Running: ${running_processes}
 
 ${color 0C0C0C}${goto 63}${voffset 55}CPU
 ${color FFFFFF}${goto 63}${cpu cpu0}%
-${color 0C0C0C}${goto 63}${voffset 55}RAM
+${color 0C0C0C}${goto 63}${voffset 56}RAM
 ${color FFFFFF}${goto 63}${memperc}%
-${color 0C0C0C}${goto 63}${voffset 56}Swap
+${color 0C0C0C}${goto 63}${voffset 59}Swap
 ${color FFFFFF}${goto 63}${swapperc}%
-${color 0C0C0C}${goto 63}${voffset 57}Disk
+${color 0C0C0C}${goto 63}${voffset 58}Disk
 ${color FFFFFF}${goto 63}${fs_used_perc /}%
-${color 0C0C0C}${goto 68}${voffset 55}Net
+${color 0C0C0C}${goto 68}${voffset 59}Net
 ${color FFFFFF}${goto 68}${downspeed enp0s3}
 ${color FFFFFF}${goto 68}${upspeed enp0s3}
-${color 0C0C0C}${goto 68}${voffset 55}Wifi
+${color 0C0C0C}${goto 68}${voffset 50}Wifi
 ${color FFFFFF}${goto 68}${downspeed wlan0}
 ${color FFFFFF}${goto 68}${upspeed wlan0}
 
