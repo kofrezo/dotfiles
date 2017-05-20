@@ -262,6 +262,21 @@ control built in.
     sudo ecryptds-setup-swap
     sudo reboot
 
+#### <ALT><F2> Run
+
+You might be used to press ALT key and F2 key and entry app name to start it.
+This can be easily achieved by installing gmrun. And then adding the shortcut
+to the openbox rc.xml.
+
+    sudo apt install gmrun
+    vim ~/.config/openbox/rc.xml
+    # <!-- Key binding for app launcher -->
+    # <keybind key="A-F2">
+    #     <action name="Execute">
+    #         <command>/usr/bin/gmrun</command>
+    #     </action>
+    # </keybind>
+
 ### Additional Software
 
     sudo apt install gimp nautilus obmenu thunderbird

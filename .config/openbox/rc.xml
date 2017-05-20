@@ -343,6 +343,12 @@
         <command>/usr/bin/dm-tool lock</command>
       </action>
     </keybind>
+    <!-- Key binding for app launcher -->
+    <keybind key="A-F2">
+        <action name="Execute">
+            <command>/usr/bin/gmrun</command>
+        </action>
+    </keybind>
   </keyboard>
   <mouse>
     <dragThreshold>1</dragThreshold>
