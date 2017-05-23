@@ -54,3 +54,6 @@ let g:syntastic_php_checkers = ['php']
 
 " Autopep8 formatting
 autocmd FileType python map <buffer> <F6> :call Autopep8()<CR>
+
+" Use system clipboard
+set clipboard=unnamed
