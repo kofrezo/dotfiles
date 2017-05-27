@@ -6,4 +6,4 @@ enable_real_transparency = true
 background_type = transparent
 background_darkness = 0.75
 scrollback_lines = 1000000
-font = "Droid Serif Bold 8"
+font = "Noto Mono Bold 10"
