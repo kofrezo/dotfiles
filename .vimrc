@@ -56,4 +56,27 @@ let g:syntastic_php_checkers = ['php']
 autocmd FileType python map <buffer> <F6> :call Autopep8()<CR>
 
 " Use system clipboard
-set clipboard=unnamed
+if has("clipboard")
+    set clipboard=unnamed " copy to the system clipboard
+    if has("unnamedplus") " X11 support
+        set clipboard+=unnamedplus
+    endif
+endif
+
+" Mouse configuration
+if has("mouse_sgr")
+    set ttymouse=sgr
+else
+    set ttymouse=xterm2
+end
+set mouse=a
+
+" Tab shortcuts
+nnoremap <C-PageUp>   :tabnext<CR>
+nnoremap <C-PageDown> :tabprevious<CR>
+inoremap <C-PageUp>   <Esc>:tabnext<CR>
+inoremap <C-PageDown> <Esc>:tabprevious<CR>
+
+" Always open files in a new buffer
+autocmd VimEnter * tab all
+autocmd BufAdd * exe 'tablast | tabe "' . expand( "<afile") .'"'
