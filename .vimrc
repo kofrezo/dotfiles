@@ -76,7 +76,3 @@ nnoremap <C-PageUp>   :tabnext<CR>
 nnoremap <C-PageDown> :tabprevious<CR>
 inoremap <C-PageUp>   <Esc>:tabnext<CR>
 inoremap <C-PageDown> <Esc>:tabprevious<CR>
-
-" Always open files in a new buffer
-autocmd VimEnter * tab all
-autocmd BufAdd * exe 'tablast | tabe "' . expand( "<afile") .'"'
