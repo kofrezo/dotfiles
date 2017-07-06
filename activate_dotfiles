@@ -59,7 +59,7 @@ echo -e "${GREEN} done${RESET}"
 
 if [[ -L ~/.config/terminator ]]; then
     unlink ~/.config/terminator
-elif [[ -d ~/.conifg/terminator ]]; then
+elif [[ -d ~/.config/terminator ]]; then
     echo -e "${ORANGE}Found existing ~/.config/terminator folder creating backup to ~/.config/terminator${RESET}"
     mv ~/.config/terminator ~/.config/terminator.bak
 fi
