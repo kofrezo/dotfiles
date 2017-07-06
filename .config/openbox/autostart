@@ -4,6 +4,10 @@ xrandr --output VGA-1 --mode 1920x1080 --rate 60
 
 xcompmgr &
 
+/usr/lib/notification-daemon/notification-daemon &
+
+gnome-settings-daemon &
+
 sh $HOME/.fehbg
 
 conky &
