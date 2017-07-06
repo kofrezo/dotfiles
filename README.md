@@ -64,6 +64,11 @@ HINT: If you have issues with window placement on wrong monitor etc. check the
 ~/.config/openbox/rc.xml there is a placement section where you can specify
 where windows should spwan.
 
+### Power saving and miscellaneous settings
+To be able to configure power saving mode and other settings like fonts, keyboard, mouse and so on, you have to install some gnome dependencies.
+
+    sudo apt install gnome-control-center gnome-settings-daemon
+
 ### Terminal Emulator
 
 Terminator is a powerful terminal emulator written in python having useful
@@ -276,6 +281,14 @@ to the openbox rc.xml.
     #         <command>/usr/bin/gmrun</command>
     #     </action>
     # </keybind>
+
+### Notification PopUps
+
+You might want to get popups from your installed application during work.
+Just install the needed notification-daemon, which will be started during
+the next boot automatically.
+
+    sudo apt install notification-daemon
 
 ### Additional Software
 
