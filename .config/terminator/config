@@ -1,9 +1,21 @@
 [global_config]
-enable_real_transparency = true
-
+  dbus = False
+  title_font = Neuropolitical 7
+[keybindings]
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
 [profiles]
-[[default]]
-background_type = transparent
-background_darkness = 0.75
-scrollback_lines = 1000000
-font = "Noto Mono Bold 10"
+  [[default]]
+    background_darkness = 0.75
+    background_type = transparent
+    cursor_color = "#aaaaaa"
+    font = Noto Mono 11
+    scrollback_lines = 1000000
+    use_system_font = False

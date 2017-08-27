@@ -26,6 +26,7 @@ set laststatus=2
 let g:lightline = { 'colorscheme': 'powerline', }
 
 " Setup vim-nerdtree sidebar
+set splitright
 let g:nerdtree_tabs_open_on_console_startup=1
 noremap <F10> :NERDTreeToggle <CR>
 
