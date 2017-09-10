@@ -56,22 +56,6 @@ let g:syntastic_php_checkers = ['php']
 " Autopep8 formatting
 autocmd FileType python map <buffer> <F6> :call Autopep8()<CR>
 
-" Use system clipboard
-if has("clipboard")
-    set clipboard=unnamed " copy to the system clipboard
-    if has("unnamedplus") " X11 support
-        set clipboard+=unnamedplus
-    endif
-endif
-
-" Mouse configuration
-if has("mouse_sgr")
-    set ttymouse=sgr
-else
-    set ttymouse=xterm2
-end
-set mouse=a
-
 " Tab shortcuts
 nnoremap <C-PageUp>   :tabnext<CR>
 nnoremap <C-PageDown> :tabprevious<CR>
