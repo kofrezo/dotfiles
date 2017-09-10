@@ -4,6 +4,8 @@
 
 source bootstrap
 
+DOTFILES_DIRECTORY="$(pwd)"
+
 # We need sudo permission to install neovim
 echo 'Asking you for sudo permissions to install neovim and plugins'
 sudo -v
@@ -30,6 +32,7 @@ else
 fi
 
 echo -n 'Compiling and installing neovim'
+make clean &> /dev/null
 make CMAKE_BUILD_TYPE=RelWithDebInfo &> /dev/null
 sudo make install &> /dev/null
 echo -e "${GREEN} done${RESET}"
@@ -37,6 +40,14 @@ echo -e "${GREEN} done${RESET}"
 echo -n 'Installing neovim python support'
 sudo pip2 install --upgrade neovim &> /dev/null
 sudo pip3 install --upgrade neovim &> /dev/null
+echo -e "${GREEN} done${RESET}"
+
+echo -n 'Activating neovim configuration'
+if [[ -d "$HOME/.config/nvim" ]] && [[ ! -e $HOME/.config/nvim ]]; then
+    mv $HOME/.config/nvim $HOME/.config/nvim.bak &> /dev/null
+fi
+cd $DOTFILES_DIRECTORY
+ln -s $(pwd)/.config/nvim $HOME/.config/nvim &> /dev/null
 echo -e "${GREEN} done${RESET}"
 
 echo
