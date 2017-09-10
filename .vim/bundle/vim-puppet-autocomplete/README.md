@@ -1,1 +1,0 @@
-# Vim Puppet DSL Autocompletion
