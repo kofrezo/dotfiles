@@ -39,3 +39,6 @@ let g:jedi#popup_on_dot = 0
 let g:jedi#popup_select_first = 0
 let g:jedi#show_call_signatures = 0
 let g:jedi#use_splits_not_buffers = "right"
+
+" Java Autocompletion
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
