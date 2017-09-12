@@ -32,7 +32,7 @@ nnoremap <F8> zM
 nnoremap <F9> zR
 
 " Tab Shortcuts
-nnoremap <PageUp> gt
+nnoremap <F2> gt
 
 " Python Autocompletion
 let g:jedi#popup_on_dot = 0
