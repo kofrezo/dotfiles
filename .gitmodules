@@ -46,3 +46,9 @@
 [submodule ".config/nvim/bundle/vim-lightline"]
 	path = .config/nvim/bundle/vim-lightline
 	url = https://github.com/itchyny/lightline.vim.git
+[submodule ".config/nvim/bundle/vim-puppet"]
+	path = .config/nvim/bundle/vim-puppet
+	url = https://github.com/rodjek/vim-puppet.git
+[submodule ".config/nvim/bundle/vim-jedi"]
+	path = .config/nvim/bundle/vim-jedi
+	url = https://github.com/davidhalter/jedi-vim.git
