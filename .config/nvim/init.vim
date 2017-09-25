@@ -40,5 +40,12 @@ let g:jedi#popup_select_first = 0
 let g:jedi#show_call_signatures = 0
 let g:jedi#use_splits_not_buffers = "right"
 
+" Python flake8 style check
+autocmd BufWritePost *.py call Flake8()
+autocmd FileType python map <buffer> <F6> :call Flake8()<CR>
+
 " Java Autocompletion
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
+
+" Remove trailing whitespace on writing files
+autocmd BufWritePre * %s/\s\+$//e

@@ -58,3 +58,6 @@
 [submodule ".config/nvim/bundle/vim-deoplete-jedi"]
     path = .config/nvim/bundle/vim-deoplete-jedi
     url = https://github.com/zchee/deoplete-jedi.git
+[submodule ".config/nvim/bundle/vim-flake8"]
+	path = .config/nvim/bundle/vim-flake8
+	url = https://github.com/nvie/vim-flake8.git
