@@ -49,3 +49,7 @@ autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
 " Remove trailing whitespace on writing files
 autocmd BufWritePre * %s/\s\+$//e
+
+" Setup dictionary
+set spell
+set spelllang=en_gb
