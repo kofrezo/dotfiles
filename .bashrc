@@ -171,3 +171,7 @@ __prompt_command() {
         source venv/bin/activate
     fi
 }
+
+export PATH="$PATH:/usr/local/go/bin"
+export GOPATH="$HOME/Sourcecode/go"
+alias vim=nvim
