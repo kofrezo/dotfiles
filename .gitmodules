@@ -55,3 +55,6 @@
 [submodule ".config/nvim/bundle/vim-flake8"]
 	path = .config/nvim/bundle/vim-flake8
 	url = https://github.com/nvie/vim-flake8.git
+[submodule ".config/nvim/bundle/vim-syntastic"]
+	path = .config/nvim/bundle/vim-syntastic
+	url = https://github.com/vim-syntastic/syntastic.git

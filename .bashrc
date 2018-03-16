@@ -172,6 +172,4 @@ __prompt_command() {
     fi
 }
 
-export PATH="$PATH:/usr/local/go/bin"
-export GOPATH="$HOME/Sourcecode/go"
-alias vim=nvim
+export PATH=$PATH:$HOME/bin:$HOME/.local/bin
