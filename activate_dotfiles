@@ -1,6 +1,6 @@
 #!/bin/bash -e
 #
-# Copyright (c) 2017, Daniel Kroeger
+# Copyright (c) 2018, Daniel Kroeger
 
 source bootstrap
 
@@ -20,8 +20,6 @@ fi
 echo -n 'Updating vim plugins'
 git submodule init &> /dev/null
 git submodule update --init --recursive &> /dev/null
-git submodule foreach git checkout master &> /dev/null
-git submodule foreach git pull origin master &> /dev/null
 echo -e "${GREEN} done${RESET}"
 
 if [[ -L ~/.vim ]]; then
@@ -68,5 +66,7 @@ echo -n 'Activating terminator folder'
 ln -s $(pwd)/.config/terminator ~/.config/terminator
 echo -e "${GREEN} done${RESET}"
 
-echo
-cowsay 'Tada - All done! restart bash to take all changes effect'
+if [[ "$1" != "--ignore-packages" ]]; then
+    echo
+    cowsay 'Tada - All done! restart bash to take all changes effect'
+fi
