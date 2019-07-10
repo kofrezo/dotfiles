@@ -173,5 +173,3 @@ __prompt_command() {
 }
 
 export PATH=$PATH:$HOME/bin:$HOME/.local/bin
-export IGVM_IMAGE_URL="http://foreman-master.ndco.ig.local:8080/new_images/{image}"
-export SERVERADMIN_BASE_URL="http://localhost:8000/api"
