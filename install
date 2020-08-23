@@ -15,17 +15,51 @@ warn()
 }
 
 # Greeting
+echo "sudo permissions required to install packages with apt"
 sudo apt install -y cowsay
 tput clear
 cowsay -f tux "Setup kofrezo dotfiles"
 
-# Install zsh and apply .zshrc
-headline "Installing ZSH"
+# Install zsh and setup .zshrc
+headline "Installing ZSH (Shell)"
 sudo apt install -y zsh
 
 headline "Setup .zshrc"
-ln -s $PWD/.zshrc $HOME/.zshrc | warn "$HOME/.zshrc already exists!"
+ZSHRC=$HOME/.zshrc
+ln -s $PWD/.zshrc $ZSHRC | warn "$ZSHRC already exists!"
 
-# Install bswpm
-headline "Installing BSPWM"
+# Install SDDM
+headline "Installing SDDM (Login Manager)"
+sudo apt install -y sddm
+
+# Install BSPWM and setup bspwmrc
+headline "Installing BSPWM (Window Manger)"
 sudo apt install -y bspwm
+
+# Make sure XDG_CONFIG_HOME is set
+grep -q XDG_CONFIG_HOME $HOME/.profile
+if [ $? -gt 0 ]; then
+    echo "XDG_CONFIG_HOME=$HOME/.config" >> $HOME/.profile
+fi
+
+headline "Setup bspwmrc"
+BSPWM_DIR=$HOME/.config/bswpm
+if [ ! -d $BSPWM_DIR ]; then
+    mkdir -p $BSPWM_DIR
+fi
+ln -s $PWD/bspwmrc $BSPWM_DIR | warn "$BSPWM_DIR already exists!"
+
+# Install SXHKD and setup sxhkdrc
+headline "Installing SXHKD (Keyboard Shortcut Manager)"
+sudo apt install -y sxhkd
+
+headline "Setup sxhkdrc"
+SXHKD_DIR=$HOME/.config/sxhkd
+if [ ! -d $SXHKD_DIR ]; then
+    mkdir -p $SXHKD_DIR
+fi
+ln -s $PWD/sxhkdrc $SXHKD_DIR/sxhkdrc | warn "$SXHKD_DIR already exists!"
+
+# Install urxvt
+headline "Installing urxvt (Terminal Emulator)"
+sudo apt install -y rxvt-unicode  
