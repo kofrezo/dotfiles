@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# Install zsh and apply .zshrc
+sudo apt install -y zsh
+ln -s $PWD/.zshrc $HOME/.zshrc
