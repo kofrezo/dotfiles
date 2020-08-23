@@ -1,5 +1,31 @@
 #!/bin/sh
 
+YELLOW='\033[1;33m'
+GREEN='\033[0;32m'
+NO_COLOR='\033[0m'
+
+headline()
+{
+    echo "\n${YELLOW}* ${GREEN}$1${NO_COLOR}"
+}
+
+warn()
+{
+    echo "${YELLOW}$1${NO_COLOR}"
+}
+
+# Greeting
+sudo apt install -y cowsay
+tput clear
+cowsay -f tux "Setup kofrezo dotfiles"
+
 # Install zsh and apply .zshrc
+headline "Installing ZSH"
 sudo apt install -y zsh
-ln -s $PWD/.zshrc $HOME/.zshrc
+
+headline "Setup .zshrc"
+ln -s $PWD/.zshrc $HOME/.zshrc | warn "$HOME/.zshrc already exists!"
+
+# Install bswpm
+headline "Installing BSPWM"
+sudo apt install -y bspwm
