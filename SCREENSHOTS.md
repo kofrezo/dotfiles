@@ -1,5 +1,0 @@
-![grub](https://raw.githubusercontent.com/kofrezo/dotfiles/master/Screenshots/dotfiles_boot.png)
-![login](https://raw.githubusercontent.com/kofrezo/dotfiles/master/Screenshots/dotfiles_login.png)
-![tty](https://raw.githubusercontent.com/kofrezo/dotfiles/master/Screenshots/dotfiles_tty.png)
-![desktop](https://raw.githubusercontent.com/kofrezo/dotfiles/master/Screenshots/dotfiles_desktop.png)
-![terminal](https://raw.githubusercontent.com/kofrezo/dotfiles/master/Screenshots/dotfiles_terminal.png)

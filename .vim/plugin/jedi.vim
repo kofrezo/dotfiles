@@ -1,1 +1,0 @@
-../bundle/vim-jedi/ftplugin/python/jedi.vim
