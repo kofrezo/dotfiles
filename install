@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Update dotfiles
+git pull origin master
+
 YELLOW='\033[1;33m'
 GREEN='\033[0;32m'
 NO_COLOR='\033[0m'
