@@ -29,41 +29,48 @@ ZSHRC=$HOME/.zshrc
 ln -s $PWD/.zshrc $ZSHRC | warn "$ZSHRC already exists!"
 
 headline "Setup Oh-My-Zsh"
-sudo apt install -y curl
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sudo apt install -y curl python3-pygments
+sh -c \
+ "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Install SDDM
 headline "Installing SDDM (Login Manager)"
 sudo apt install -y sddm
 
-# Install BSPWM and setup bspwmrc
-headline "Installing BSPWM (Window Manger)"
-sudo apt install -y bspwm
+# Install xinit
+headline "Installing xinit"
+sudo apt install -y xinit
 
-# Make sure XDG_CONFIG_HOME is set
+# Ensure XDG_CONFIG_HOME variable is set
 grep -q XDG_CONFIG_HOME $HOME/.profile
 if [ $? -gt 0 ]; then
     echo "XDG_CONFIG_HOME=$HOME/.config" >> $HOME/.profile
 fi
 
+# Install BSPWM and setup bspwmrc
+headline "Installing BSPWM (Window Manger)"
+sudo apt install -y bspwm
+
 headline "Setup bspwmrc"
-BSPWM_DIR=$HOME/.config/bswpm
-if [ ! -d $BSPWM_DIR ]; then
-    mkdir -p $BSPWM_DIR
-fi
-ln -s $PWD/bspwmrc $BSPWM_DIR | warn "$BSPWM_DIR already exists!"
+BSPWM_DIR=$HOME/.config/bspwm
+ln -s $PWD/.config/bspwm $BSPWM_DIR | warn "$BSPWM_DIR already exists!"
 
 # Install SXHKD and setup sxhkdrc
-headline "Installing SXHKD (Keyboard Shortcut Manager)"
+headline "Installing SXHKD (Keyboard Shortcuts)"
 sudo apt install -y sxhkd
 
 headline "Setup sxhkdrc"
 SXHKD_DIR=$HOME/.config/sxhkd
-if [ ! -d $SXHKD_DIR ]; then
-    mkdir -p $SXHKD_DIR
-fi
-ln -s $PWD/sxhkdrc $SXHKD_DIR/sxhkdrc | warn "$SXHKD_DIR already exists!"
+ln -s $PWD/.config/sxhkd $SXHKD_DIR | warn "$SXHKD_DIR already exists!"
+
+# Install polybar and setup polybar config
+headline "Installing polybar (Desktop Taskbar)"
+sudo apt install -y -t buster-backports install polybar
 
 # Install urxvt
 headline "Installing urxvt (Terminal Emulator)"
 sudo apt install -y rxvt-unicode  
+
+# Install pstree
+headline "Installing psmisc (pstree)"
+sudo apt install -y psmisc
