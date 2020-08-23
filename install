@@ -33,8 +33,12 @@ ln -s $PWD/.zshrc $ZSHRC | warn "$ZSHRC already exists!"
 
 headline "Setup Oh-My-Zsh"
 sudo apt install -y curl python3-pygments
-sh -c \
- "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+if [ ! -d $HOME/.oh-my-zsh ]; then
+    sh -c "$(curl -fsSL \
+https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+else
+    warn "Oh-My-Zsh already installed!"
+fi
 
 # Install SDDM
 headline "Installing SDDM (Login Manager)"
@@ -77,3 +81,15 @@ sudo apt install -y rxvt-unicode
 # Install pstree
 headline "Installing psmisc (pstree)"
 sudo apt install -y psmisc
+
+# Install pyenv
+headline "Installing pyenv (Simple Python Version Management)"
+if [ ! -d $HOME/.pyenv ]; then
+    curl https://pyenv.run | bash
+else
+    warn "pyenv alread installed!"
+fi
+
+# Install pipenv
+headline "Installing pipenv (Python Development Workflow)"
+sudo apt install -y pipenv
