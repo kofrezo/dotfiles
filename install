@@ -60,7 +60,11 @@ sudo apt install -y bspwm
 
 headline "Setup bspwmrc"
 BSPWM_DIR=$HOME/.config/bspwm
-ln -s $PWD/.config/bspwm $BSPWM_DIR | warn "$BSPWM_DIR already exists!"
+if [ ! -L $BSPWM_DIR ]; then
+    ln -s $PWD/.config/bspwm $BSPWM_DIR
+else
+    warn "$BSPWM_DIR already exists!"
+fi
 
 # Install SXHKD and setup sxhkdrc
 headline "Installing SXHKD (Keyboard Shortcuts)"
@@ -68,7 +72,11 @@ sudo apt install -y sxhkd
 
 headline "Setup sxhkdrc"
 SXHKD_DIR=$HOME/.config/sxhkd
-ln -s $PWD/.config/sxhkd $SXHKD_DIR | warn "$SXHKD_DIR already exists!"
+if [ ! -L $SXHKD_DIR ]; then
+    ln -s $PWD/.config/sxhkd $SXHKD_DIR
+else
+    warn "$SXHKD_DIR already exists!"
+fi
 
 # Install polybar and setup polybar config
 headline "Installing polybar (Desktop Taskbar)"
