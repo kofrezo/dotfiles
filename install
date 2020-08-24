@@ -1,8 +1,5 @@
 #!/bin/sh
 
-# Update dotfiles
-git pull origin master
-
 YELLOW='\033[1;33m'
 GREEN='\033[0;32m'
 NO_COLOR='\033[0m'
@@ -81,6 +78,18 @@ fi
 # Install polybar and setup polybar config
 headline "Installing polybar (Desktop Taskbar)"
 sudo apt install -y -t buster-backports install polybar
+
+headline "Setup polybar configuration"
+POLYBAR_DIR=$HOME/.config/polybar
+if [ ! -L $POLYBAR_DIR ]; then
+    ln -s $PWD/.config/polybar $POLYBAR_DIR
+else
+    warn "$POLYBAR_DIR already exists!"
+fi
+
+# Install feh
+headline "Installing feh (Image Viewer)"
+sudo apt install -y feh
 
 # Install urxvt
 headline "Installing urxvt (Terminal Emulator)"

@@ -1,0 +1,19 @@
+[colors]
+background = #222
+foreground = #dfdfdf
+
+[bar/top]
+width = 100%
+height = 25
+radius = 0.6
+
+foreground = ${colors.foreground}
+background = ${colors.background}
+
+modules-right = date
+
+[module/date]
+type = internal/date
+interval = 1.0
+date = %Y-%m-%d
+time = %H:%M

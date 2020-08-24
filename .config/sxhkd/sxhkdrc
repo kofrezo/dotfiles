@@ -6,6 +6,12 @@
 super + t
     urxvt
 
+super + b
+    opera
+ 
+super + u
+    terminator
+
 # program launcher
 super + @space
     dmenu_run
