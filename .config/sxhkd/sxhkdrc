@@ -2,6 +2,26 @@
 # wm independent hotkeys
 #
 
+# simple window navigation
+super + {h,j,k,l}
+    bspc node -f {west,south,north,east}
+
+# move window to other monitor
+super + @space
+    bspc node --to-monitor next -f
+
+# put window into fullscreen
+super + X
+    bspc node -t fullscreen
+
+# put window back into tiled mode
+super + x
+    bspc node -t tiled
+
+# exit bspc
+super + Escape
+    bspc quit
+
 # terminal emulator
 super + t
     terminator
