@@ -14,13 +14,15 @@ warn()
     echo "${YELLOW}$1${NO_COLOR}"
 }
 
-# Greeting
-echo "sudo permissions required to install packages with apt"
+# Greeting ####################################################################
+
+echo "supersuer permissions required to install packages with apt"
 sudo apt install -y cowsay
 tput clear
 cowsay -f tux "Setup kofrezo dotfiles"
 
-# Install zsh and setup .zshrc
+# Install zsh and setup .zshrc ################################################
+
 headline "Installing ZSH (Shell)"
 sudo apt install -y zsh
 
@@ -37,22 +39,26 @@ else
     warn "Oh-My-Zsh already installed!"
 fi
 
-# Install SDDM
+# Install SDDM ################################################################
+
 headline "Installing SDDM (Login Manager)"
 sudo apt install -y sddm
 
-# Install xinit
+# Install xinit ###############################################################
+
 headline "Installing xinit"
 sudo apt install -y xinit
 
-# Ensure XDG_CONFIG_HOME variable is set
+# Ensure XDG_CONFIG_HOME variable is set ######################################
+
 grep -q XDG_CONFIG_HOME $HOME/.profile
 if [ $? -gt 0 ]; then
     echo "XDG_CONFIG_HOME=$HOME/.config" >> $HOME/.profile
 fi
 
-# Install BSPWM and setup bspwmrc
-headline "Installing BSPWM (Window Manger)"
+# Install BSPWM and setup bspwmrc #############################################
+
+headline "Installing BSPWM (Window Manger)" 
 sudo apt install -y bspwm
 
 headline "Setup bspwmrc"
@@ -63,7 +69,8 @@ else
     warn "$BSPWM_DIR already exists!"
 fi
 
-# Install SXHKD and setup sxhkdrc
+# Install SXHKD and setup sxhkdrc #############################################
+
 headline "Installing SXHKD (Keyboard Shortcuts)"
 sudo apt install -y sxhkd
 
@@ -75,11 +82,12 @@ else
     warn "$SXHKD_DIR already exists!"
 fi
 
-# Install polybar and setup polybar config
+# Install polybar and setup polybar config ####################################
+
 headline "Installing polybar (Desktop Taskbar)"
 sudo apt install -y -t buster-backports install polybar
 
-headline "Setup polybar configuration"
+headline "Setup polybar config"
 POLYBAR_DIR=$HOME/.config/polybar
 if [ ! -L $POLYBAR_DIR ]; then
     ln -s $PWD/.config/polybar $POLYBAR_DIR
@@ -87,19 +95,55 @@ else
     warn "$POLYBAR_DIR already exists!"
 fi
 
-# Install feh
-headline "Installing feh (Image Viewer)"
+# Install Fonts ###############################################################
+
+headline "Installing Noto Sans (Font)"
+sudo apt install -y fonts-noto
+
+headline "Installing additional fonts (JetBrains Mono)"
+FONT_DIR=$HOME/.local/share/fonts
+if [ ! -d $FONT_DIR ]; then
+    mkdir -p $FONT_DIR
+fi
+
+if [ ! -L $FONT_DIR/JetBrainsMono ]; then
+    ln -s $PWD/.local/share/fonts/JetBrainsMono $FONT_DIR/JetBrainsMono
+else
+    warn "$FONT_DIR/JetBrainsMono already exists!"
+fi
+fc-cache -f -v
+
+# Install feh #################################################################
+
+headline "Installing feh (Background Image)"
 sudo apt install -y feh
 
-# Install urxvt
-headline "Installing urxvt (Terminal Emulator)"
-sudo apt install -y rxvt-unicode  
+headline "Setup background image"
+BACKGROUND_IMAGE=$HOME/background.jpg
+ln -s $PWD/background.jpg $BACKGROUND_IMAGE | warn "$BACKGROUND_IMAGE already\
+       	exists!"
 
-# Install pstree
+# Install terminator ##########################################################
+
+headline "Installing Terminator"
+sudo apt install -y terminator
+
+# Setup terminator
+headline "Setup terminator config"
+TERMINATOR_DIR=$HOME/.config/terminator
+if [ ! -L $TERMINATOR_DIR ]; then
+    ln -s $PWD/.config/terminator $TERMINATOR_DIR
+else
+    warn "$TERMINATOR_DIR already exists!"
+fi
+
+# Install pstree ##############################################################
+
 headline "Installing psmisc (pstree)"
 sudo apt install -y psmisc
 
-# Install pyenv
+# Install pyenv ###############################################################
+
 headline "Installing pyenv (Simple Python Version Management)"
 if [ ! -d $HOME/.pyenv ]; then
     curl https://pyenv.run | bash
@@ -107,6 +151,22 @@ else
     warn "pyenv alread installed!"
 fi
 
-# Install pipenv
+# Install pipenv ##############################################################
+
 headline "Installing pipenv (Python Development Workflow)"
 sudo apt install -y pipenv
+
+# Install man pages ###########################################################
+
+headline "Installing man pages"
+sudo apt install -y man-db
+
+# Vivaldi Browser #############################################################
+
+headline "Installing Vivaldi (Internet Browser"
+
+wget -qO- https://repo.vivaldi.com/archive/linux_signing_key.pub \
+	| sudo apt-key add -
+sudo add-apt-repository 'deb https://repo.vivaldi.com/archive/deb/ stable main'
+sudo apt update
+sudo apt install -y vivaldi-stable

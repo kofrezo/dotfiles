@@ -4,18 +4,11 @@
 
 # terminal emulator
 super + t
-    urxvt
-
-super + b
-    opera
- 
-super + u
     terminator
 
-# program launcher
-super + @space
-    dmenu_run
+super + b
+    vivaldi
 
 # make sxhkd reload its configuration files
-super + Return
+super + r
     pkill -USR1 -x sxhkd

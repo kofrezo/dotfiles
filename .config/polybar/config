@@ -10,10 +10,13 @@ radius = 0.6
 foreground = ${colors.foreground}
 background = ${colors.background}
 
+font-0 = "Noto Sans Mono:size=10:antialias=true;2"
+
 modules-right = date
 
 [module/date]
 type = internal/date
 interval = 1.0
-date = %Y-%m-%d
+date = CW%U %Y-%m-%d
 time = %H:%M
+label = %date% %time%
