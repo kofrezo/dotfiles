@@ -2,7 +2,10 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-bspc monitor -d 1 2 3 4 5
+xrandr --output DP-4 --primary --right-of DP-2
+
+bspc monitor DP-4 -d 1 2 3 4 5
+bspc monitor DP-2 -d 1 2 3 4 5
 
 bspc config border_width         2
 bspc config window_gap          12
@@ -16,3 +19,6 @@ $HOME/.config/polybar/launch.sh
 
 # Set background image
 feh --bg-center $HOME/background.jpg
+
+# Enable composite manager
+xcompmgr -c &

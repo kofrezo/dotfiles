@@ -56,6 +56,11 @@ if [ $? -gt 0 ]; then
     echo "XDG_CONFIG_HOME=$HOME/.config" >> $HOME/.profile
 fi
 
+# xcompmgr ####################################################################
+
+headline "Installing xcompgr (Composite Manager)"
+sudo apt install -y xcompmgr
+
 # Install BSPWM and setup bspwmrc #############################################
 
 headline "Installing BSPWM (Window Manger)" 
@@ -108,10 +113,10 @@ fi
 
 if [ ! -L $FONT_DIR/JetBrainsMono ]; then
     ln -s $PWD/.local/share/fonts/JetBrainsMono $FONT_DIR/JetBrainsMono
+    fc-cache -f -v
 else
     warn "$FONT_DIR/JetBrainsMono already exists!"
 fi
-fc-cache -f -v
 
 # Install feh #################################################################
 
@@ -148,7 +153,7 @@ headline "Installing pyenv (Simple Python Version Management)"
 if [ ! -d $HOME/.pyenv ]; then
     curl https://pyenv.run | bash
 else
-    warn "pyenv alread installed!"
+    warn "pyenv already installed!"
 fi
 
 # Install pipenv ##############################################################
@@ -165,8 +170,16 @@ sudo apt install -y man-db
 
 headline "Installing Vivaldi (Internet Browser"
 
-wget -qO- https://repo.vivaldi.com/archive/linux_signing_key.pub \
-	| sudo apt-key add -
-sudo add-apt-repository 'deb https://repo.vivaldi.com/archive/deb/ stable main'
-sudo apt update
-sudo apt install -y vivaldi-stable
+VIVALDI_INSTALLED=$(dpkg -l | grep vivaldi-stable)
+if [ -z "$VIVALDI_INSTALLED" ]; then
+    curl -vs 2>&1 https://repo.vivaldi.com/archive/linux_signing_key.pub \
+	| sudo apt-key add -    
+    sudo apt install -y software-properties-common
+    sudo add-apt-repository \
+	    'deb https://repo.vivaldi.com/archive/deb/ stable main'
+    sudo apt update
+    sudo apt install -y vivaldi-stable
+else
+    warn "Vivaldi is already installed!"
+fi
+
