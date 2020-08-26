@@ -1,4 +1,5 @@
 [global_config]
+  borderless = True
 [keybindings]
 [profiles]
   [[default]]
@@ -6,6 +7,7 @@
     background_type = transparent
     cursor_color = "#aaaaaa"
     font = JetBrains Mono Bold 10
+    show_titlebar = False
     scrollbar_position = hidden
     scrollback_infinite = True
     use_system_font = False
