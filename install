@@ -90,7 +90,7 @@ fi
 # Install polybar and setup polybar config ####################################
 
 headline "Installing polybar (Desktop Taskbar)"
-sudo apt install -y -t buster-backports install polybar
+sudo apt install -y -t buster-backports polybar
 
 headline "Setup polybar config"
 POLYBAR_DIR=$HOME/.config/polybar
