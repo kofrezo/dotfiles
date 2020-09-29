@@ -7,7 +7,7 @@ super + {h,j,k,l}
     bspc node -f {west,south,north,east}
 
 # move window to other monitor
-super + @space
+super + space
     bspc node --to-monitor next -f
 
 # put window into fullscreen
