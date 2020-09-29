@@ -168,7 +168,7 @@ sudo apt install -y man-db
 
 # Vivaldi Browser #############################################################
 
-headline "Installing Vivaldi (Internet Browser"
+headline "Installing Vivaldi (Internet Browser)"
 
 VIVALDI_INSTALLED=$(dpkg -l | grep vivaldi-stable)
 if [ -z "$VIVALDI_INSTALLED" ]; then
