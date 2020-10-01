@@ -21,4 +21,4 @@ $HOME/.config/polybar/launch.sh
 feh --bg-center $HOME/background.jpg
 
 # Enable composite manager
-xcompmgr -c &
+compton &

@@ -56,10 +56,10 @@ if [ $? -gt 0 ]; then
     echo "XDG_CONFIG_HOME=$HOME/.config" >> $HOME/.profile
 fi
 
-# xcompmgr ####################################################################
+# compton #####################################################################
 
-headline "Installing xcompgr (Composite Manager)"
-sudo apt install -y xcompmgr
+headline "Installing compton (Composite Manager)"
+sudo apt install -y compton
 
 # Install BSPWM and setup bspwmrc #############################################
 
