@@ -61,10 +61,15 @@ fi
 headline "Installing compton (Composite Manager)"
 sudo apt install -y compton
 
+
 # Install BSPWM and setup bspwmrc #############################################
 
 headline "Installing BSPWM (Window Manger)" 
 sudo apt install -y bspwm
+
+if [ ! -d $HOME/.config ]; then
+    mkdir $HOME/.config
+fi
 
 headline "Setup bspwmrc"
 BSPWM_DIR=$HOME/.config/bspwm
