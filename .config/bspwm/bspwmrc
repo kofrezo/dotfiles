@@ -2,9 +2,9 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-xrandr --output DP-4 --primary --right-of DP-2
+xrandr --output DP-1 --primary --right-of DP-2
 
-bspc monitor DP-4 -d 1 2 3 4 5
+bspc monitor DP-1 -d 1 2 3 4 5
 bspc monitor DP-2 -d 1 2 3 4 5
 
 bspc config border_width         2
