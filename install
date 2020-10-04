@@ -107,9 +107,6 @@ fi
 
 # Install Fonts ###############################################################
 
-headline "Installing Noto Sans (Font)"
-sudo apt install -y fonts-noto
-
 headline "Installing additional fonts (JetBrains Mono)"
 FONT_DIR=$HOME/.local/share/fonts
 if [ ! -d $FONT_DIR ]; then
@@ -121,6 +118,14 @@ if [ ! -L $FONT_DIR/JetBrainsMono ]; then
     fc-cache -f -v
 else
     warn "$FONT_DIR/JetBrainsMono already exists!"
+fi
+
+headline "Install additional fonts (Materialicons)"
+if [ ! -L $FONT_DIR/Materialicons ]; then
+    ln -s $PWD/.local/share/fonts/Materialicons $FONT_DIR/Materialicons
+    fc-cache -f -v
+else
+    warn "$FONT_DIR/Materialicons already exists!"
 fi
 
 # Install feh #################################################################

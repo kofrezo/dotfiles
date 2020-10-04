@@ -1,22 +1,30 @@
 [colors]
-background = #222
-foreground = #dfdfdf
+; First 2 chars are for transparency, 00 full transparency, FF no transparency
+background = #AA2E2E2E
+foreground = #FFCDC8C0
+
 
 [bar/top]
-width = 100%
-height = 25
-radius = 0.6
+width = 280
+
+height = 30
+radius = 15
+
+offset-x = 1%
+offset-y = 0.5%
 
 foreground = ${colors.foreground}
 background = ${colors.background}
 
-font-0 = "Noto Sans Mono:size=10:antialias=true;2"
+padding = 5
+
+font-0 = "JetBrains Mono Bold:size=10.5;2"
+font-1 = "Material Icons:size=13;4"
 
 modules-right = date
+
 
 [module/date]
 type = internal/date
 interval = 1.0
-date = CW%U %Y-%m-%d
-time = %H:%M
-label = %date% %time%
+date =  %H:%M %p  %m/%d/%Y CW %U 
