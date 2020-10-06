@@ -193,3 +193,12 @@ else
     warn "Vivaldi is already installed!"
 fi
 
+# Spotify & Soundserver #######################################################
+
+headline "Installing Pulseaudio"
+sudo apt install -y pulseaudio pavucontrol
+
+headline "Installing Spotify (ncspot)"
+sudo apt install -y cargo
+export PATH=$PATH:/usr/bin/cargo
+cargo install ncspot
