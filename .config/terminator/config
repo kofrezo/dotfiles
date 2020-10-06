@@ -1,6 +1,7 @@
 [global_config]
   borderless = True
 [keybindings]
+  help = None
 [profiles]
   [[default]]
     background_darkness = 0.95
