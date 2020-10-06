@@ -109,5 +109,3 @@ fi
 
 # ncspot - cargo binaries
 export PATH="$HOME/.cargo/bin:$PATH"
-
-EDITOR=vim

@@ -202,3 +202,17 @@ headline "Installing Spotify (ncspot)"
 sudo apt install -y cargo
 export PATH=$PATH:/usr/bin/cargo
 cargo install ncspot
+
+# vim #########################################################################
+
+headline "Installing vim (Editor)"
+sudo apt install -y vim
+
+headline "Setup .vimrc"
+VIMRC=$HOME/.vimrc
+
+if [ ! -L $VIMRC ]; then
+    ln -s $PWD/.vimrc $VIMRC
+else
+    warn "$VIMRC already exists"
+fi
