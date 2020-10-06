@@ -203,6 +203,15 @@ sudo apt install -y cargo
 export PATH=$PATH:/usr/bin/cargo
 cargo install ncspot
 
+NCSPOT_DIR=$HOME/.config/ncspot
+if [ ! -d $NCSPOT_DIR ]; then
+    mkdir -p $NCSPOT_DIR
+fi
+
+NCSPOT_CONFIG=$HOME/.config/ncspot/config.toml
+ln -s $PWD/.config/ncspot/config.toml $NCSPOT_CONFIG \
+    | warn "$NCSPOT_CONFIG already exists!"
+
 # vim #########################################################################
 
 headline "Installing vim (Editor)"
@@ -210,9 +219,4 @@ sudo apt install -y vim
 
 headline "Setup .vimrc"
 VIMRC=$HOME/.vimrc
-
-if [ ! -L $VIMRC ]; then
-    ln -s $PWD/.vimrc $VIMRC
-else
-    warn "$VIMRC already exists"
-fi
+ln -s $PWD/.vimrc $VIMRC | warn "$VIMRC already exists"
