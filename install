@@ -238,7 +238,7 @@ sudo apt install -y keepassxc
 # Nextcloud ###################################################################
 
 headline "Installing nextcloud"
-sudo apt install -y nextcloud
+sudo apt install -y nextcloud-desktop
 
 # Gimp ########################################################################
 
