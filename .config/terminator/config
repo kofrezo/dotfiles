@@ -4,14 +4,17 @@
   help = None
 [profiles]
   [[default]]
-    background_darkness = 0.95
+    background_color = "#2b2b2b"
+    background_darkness = 0.9
     background_type = transparent
     cursor_color = "#aaaaaa"
     font = JetBrains Mono Bold 10
+    foreground_color = "#a9b7c6"
     show_titlebar = False
     scrollbar_position = hidden
     scrollback_infinite = True
     use_system_font = False
+    copy_on_selection = True
 [layouts]
   [[default]]
     [[[window0]]]

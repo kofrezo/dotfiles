@@ -134,8 +134,8 @@ headline "Installing feh (Background Image)"
 sudo apt install -y feh
 
 headline "Setup background image"
-BACKGROUND_IMAGE=$HOME/background.jpg
-ln -s $PWD/background.jpg $BACKGROUND_IMAGE | warn "$BACKGROUND_IMAGE already\
+BACKGROUND_IMAGE=$HOME/background.png
+ln -s $PWD/background.png $BACKGROUND_IMAGE | warn "$BACKGROUND_IMAGE already\
        	exists!"
 
 # Install terminator ##########################################################
@@ -220,3 +220,8 @@ sudo apt install -y vim
 headline "Setup .vimrc"
 VIMRC=$HOME/.vimrc
 ln -s $PWD/.vimrc $VIMRC | warn "$VIMRC already exists"
+
+# keepassx ####################################################################
+
+headline "Installing keepassx"
+sudo apt install -y keepassx

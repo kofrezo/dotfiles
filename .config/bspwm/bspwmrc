@@ -14,11 +14,14 @@ bspc config split_ratio          0.52
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
+# Window rules
+bspc rule -a terminator:shortcuts state=floating
+
 # Launch task bar
 $HOME/.config/polybar/launch.sh
 
 # Set background image
-feh --bg-center $HOME/background.jpg
+feh --bg-fill $HOME/background.png
 
 # Enable composite manager
 compton &
