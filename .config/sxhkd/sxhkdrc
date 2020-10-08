@@ -56,6 +56,10 @@ super + b
 super + p
     keepassxc
 
+# Open Gimp
+super + g
+    gimp
+
 # Reload SXHKD config
 super + r
     pkill -USR1 -x sxhkd

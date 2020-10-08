@@ -69,7 +69,7 @@ sudo apt install -y compton
 
 # Install BSPWM and setup bspwmrc #############################################
 
-headline "Installing BSPWM (Window Manger)" 
+headline "Installing BSPWM (Window Manger)"
 sudo apt install -y bspwm
 
 if [ ! -d $HOME/.config ]; then
@@ -188,7 +188,7 @@ headline "Installing Vivaldi (Internet Browser)"
 VIVALDI_INSTALLED=$(dpkg -l | grep vivaldi-stable)
 if [ -z "$VIVALDI_INSTALLED" ]; then
     curl -vs 2>&1 https://repo.vivaldi.com/archive/linux_signing_key.pub \
-	| sudo apt-key add -    
+	| sudo apt-key add -
     sudo apt install -y software-properties-common
     sudo add-apt-repository \
 	    'deb https://repo.vivaldi.com/archive/deb/ stable main'
@@ -231,7 +231,12 @@ ln -s $PWD/.vimrc $VIMRC | warn "$VIMRC already exists"
 headline "Installing keepassxc"
 sudo apt install -y keepassxc
 
-# Nextcloud ##################################################################
+# Nextcloud ###################################################################
 
 headline "Installing nextcloud"
 sudo apt install -y nextcloud
+
+# Gimp ########################################################################
+
+headline "Installing gimp"
+sudo apt install -y gimp
