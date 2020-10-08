@@ -39,6 +39,11 @@ else
     warn "Oh-My-Zsh already installed!"
 fi
 
+if [ -d $HOME/.ssh ]; then
+    mkdir $HOME/.ssh
+    chmod 0750 $HOME/.ssh
+fi
+
 # Install SDDM ################################################################
 
 headline "Installing SDDM (Login Manager)"
@@ -223,5 +228,10 @@ ln -s $PWD/.vimrc $VIMRC | warn "$VIMRC already exists"
 
 # keepassx ####################################################################
 
-headline "Installing keepassx"
-sudo apt install -y keepassx
+headline "Installing keepassxc"
+sudo apt install -y keepassxc
+
+# Nextcloud ##################################################################
+
+headline "Installing nextcloud"
+sudo apt install -y nextcloud

@@ -5,7 +5,7 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 xrandr --output DP-1 --primary --right-of DP-2
 
 bspc monitor DP-1 -d 1 2 3 4 5
-bspc monitor DP-2 -d 1 2 3 4 5
+bspc monitor DP-2
 
 bspc config border_width         2
 bspc config window_gap          12
@@ -22,6 +22,9 @@ $HOME/.config/polybar/launch.sh
 
 # Set background image
 feh --bg-fill $HOME/background.png
+
+# Startup applications
+nextcloud --background &
 
 # Enable composite manager
 compton &

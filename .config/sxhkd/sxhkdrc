@@ -2,16 +2,27 @@
 # wm independent hotkeys
 #
 
-# simple window navigation
+# Display keyboard shortcuts
+super + u
+    terminator -r shortcuts -e ~/.config/sxhkd/show_help
+
+# Goto next desktop
+super + n
+    bspc desktop -f next.local
+
+# Goto previous desktop
+super + v
+    bspc desktop -f prev.local
+
+# Navigate to window
 super + {h,j,k,l}
     bspc node -f {west,south,north,east}
 
-# swap windows
+# Move window to
 super + ctrl + {h,j,k,l}
     bspc node -n {west,south,north,east} -f
 
-# Smart resize, will grow or shrink depending on location.
-# Will always grow for floating nodes.
+# Resize window
 super + ctrl + alt + {h,j,k,l}
   n=10; \
   { d1=left;   d2=right;  dx=-$n; dy=0;   \
@@ -21,33 +32,31 @@ super + ctrl + alt + {h,j,k,l}
   } \
   bspc node --resize $d1 $dx $dy || bspc node --resize $d2 $dx $dy
 
-# move window to other monitor
+# Move window to next monitor
 super + @space
     bspc node --to-monitor next -f
 
-# toggle window between fullscreen and tiled
+# Enable fullscreen
 super + x
     bspc node -t {fullscreen,tiled}
 
-# exit bspc
+# Exit BSPWM
 super + Escape
     bspc quit
 
-# terminal emulator
+# Open Terminal
 super + t
     terminator
 
-# browser
+# Open Browser
 super + b
     vivaldi
 
-# password manager
+# Open Password Manager
 super + p
-    keepassx
+    keepassxc
 
-# make sxhkd reload its configuration files
+# Reload SXHKD config
 super + r
     pkill -USR1 -x sxhkd
 
-super + @h
-    terminator -r shortcuts -e ~/.config/sxhkd/show_help

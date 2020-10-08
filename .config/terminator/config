@@ -1,6 +1,11 @@
 [global_config]
   borderless = True
+  tab_position = hidden
 [keybindings]
+  go_up = <Alt>k
+  go_down = <Alt>j
+  go_left = <Alt>h
+  go_right = <Alt>l
   help = None
 [profiles]
   [[default]]
