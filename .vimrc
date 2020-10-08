@@ -20,3 +20,6 @@ set colorcolumn=80
 colorscheme darcula
 set termguicolors
 set laststatus=2
+
+" Remove trailing whitespace when saving
+autocmd BufWritePre * %s/\s\+$//e
