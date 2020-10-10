@@ -249,3 +249,8 @@ sudo apt install -y gimp
 
 headline "Installing thunderbird"
 sudo apt install -y thunderbird
+
+# ldnsutils (modern nslookup) #################################################
+
+headline "Installing ldnsutils"
+sudo apt install -y ldnsutils
