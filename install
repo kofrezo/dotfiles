@@ -244,3 +244,8 @@ sudo apt install -y nextcloud-desktop
 
 headline "Installing gimp"
 sudo apt install -y gimp
+
+# Thunderbird (Mail) ##########################################################
+
+headline "Installing thunderbird"
+sudo apt install -y thunderbird

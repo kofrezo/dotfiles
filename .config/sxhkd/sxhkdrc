@@ -60,6 +60,10 @@ super + p
 super + g
     gimp
 
+# Open Thunderbird
+super + m
+    thunderbird
+
 # Reload SXHKD config
 super + r
     pkill -USR1 -x sxhkd
