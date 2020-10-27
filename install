@@ -114,6 +114,10 @@ else
     warn "$POLYBAR_DIR already exists!"
 fi
 
+if [ ! -d $HOME/.logs ]; then
+    mkdir $HOME/.logs
+fi
+
 # Install Fonts ###############################################################
 
 headline "Installing additional fonts (JetBrains Mono)"
