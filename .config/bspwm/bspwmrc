@@ -23,8 +23,13 @@ $HOME/.config/polybar/launch.sh
 # Set background image
 feh --bg-fill $HOME/background.png
 
-# Startup applications
-nextcloud --background &
+# Start Keepassxc
+keepassxc &
+
+# Give the user some time to enter the password in Keepassxc because this
+# unlocks Secret Service Integration.
+/bin/sh -c 'sleep 15 && nextcloud --background \
+    --logfile $HOME/.logs/nextcloud.log' &
 
 # Enable composite manager
 compton &
