@@ -52,6 +52,7 @@ sudo apt install -y sddm
 headline "Configure SDDM (Login Manager)"
 sudo cp -r $PWD/background.png \
     /usr/share/sddm/themes/debian-theme/background.png
+sudo cp -r $PWD/sddm/theme.conf /usr/share/sddm/themes/debian-theme/theme.conf
 
 # Install xinit ###############################################################
 
