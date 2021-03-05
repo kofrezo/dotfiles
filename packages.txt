@@ -59,3 +59,6 @@ autojump
 
 # View images from the command line
 catimg
+
+# JSON processor
+jq
