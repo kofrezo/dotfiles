@@ -8,6 +8,7 @@ source $HOME/.antigen.zsh
 antigen use oh-my-zsh
 
 antigen bundle direnv
+antigen bundle autojump
 antigen bundle zsh-users/zsh-syntax-highlighting
 
 antigen apply
