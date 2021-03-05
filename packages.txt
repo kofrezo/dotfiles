@@ -65,3 +65,6 @@ jq
 
 # Enhanced python interactive shell
 ipython
+
+# Python package manager
+python3-pip

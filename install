@@ -23,14 +23,14 @@ sudo usermod -a -G input $USER
 
 # Link sway configuration
 SWAY_CFG_DIR=$XDG_CONFIG_HOME/sway
-test -f $SWAY_CFG_DIR || ln -s $PWD/.config/sway $SWAY_CFG_DIR
+test -L $SWAY_CFG_DIR || ln -s $PWD/.config/sway $SWAY_CFG_DIR
 
 # Background image
 test -f $HOME/.background.png || ln -s $PWD/background.png $HOME/.background.png
 
 # Alacritty configuration
 ALACRITTY_CFG_DIR=$XDG_CONFIG_HOME/alacritty
-test -f $ALACRITTY_CFG_DIR || ln -s $PWD/.config/alacritty $ALACRITTY_CONFIG_DIR
+test -L $ALACRITTY_CFG_DIR || ln -s $PWD/.config/alacritty $ALACRITTY_CFG_DIR
 
 # Set default shell to zsh
 chsh -s /bin/zsh $(whoami)
@@ -71,5 +71,8 @@ cd ..
 
 # zsh ssh-agent plugins needs this directory
 mkdir -p $HOME/.ssh
+
+# Install thefuck application: Fixes typos by entering fuck
+sudo pip install thefuck
 
 echo "Make sure to run :PlugInstall when you run vim for the first time"
