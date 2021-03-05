@@ -12,6 +12,7 @@ antigen bundle autojump
 antigen bundle git
 antigen bundle sudo
 antigen bundle thefuck
+antigen bundle timer
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen apply
 
