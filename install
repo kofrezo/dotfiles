@@ -1,0 +1,72 @@
+#!/bin/sh -x
+
+# @TODO Fix gammastep
+# @TODO add service for nextcloud client (automatic) start
+# @TODO add explanatory comments for keepassxc setup (SSH Agent + Secret Service)
+
+export XDG_CONFIG_HOME="$HOME/.config"
+
+sudo xbps-install $(grep -o '^[^#]*' packages.txt | tr '\n' ' ')
+
+# Enable NTP Daemon on boot
+test -d /var/service/ntpd || sudo ln -s /etc/sv/ntpd /var/service/
+
+# Start Seat Manager on boot
+test -d /var/service/dbus || sudo ln -s /etc/sv/dbus /var/service/
+test -d /var/service/elogind || sudo ln -s /etc/sv/elogind /var/service/
+
+# Update font settings
+sudo xbps-reconfigure fontconfig
+
+# Put user to groups necessary for sway to work
+sudo usermod -a -G input $USER
+
+# Link sway configuration
+SWAY_CFG_DIR=$XDG_CONFIG_HOME/sway
+test -f $SWAY_CFG_DIR || ln -s $PWD/.config/sway $SWAY_CFG_DIR
+
+# Background image
+test -f $HOME/.background.png || ln -s $PWD/background.png $HOME/.background.png
+
+# Alacritty configuration
+ALACRITTY_CFG_DIR=$XDG_CONFIG_HOME/alacritty
+test -f $ALACRITTY_CFG_DIR || ln -s $PWD/.config/alacritty $ALACRITTY_CONFIG_DIR
+
+# Set default shell to zsh
+chsh -s /bin/zsh $(whoami)
+
+# Remove left overs
+rm ~/.bash*
+
+# Setup zsh
+test -f $HOME/.zshrc || ln -s $PWD/.zshrc $HOME/
+test -f $HOME/.zlogin || ln -s $PWD/.zlogin $HOME/
+test -f $HOME/.zshenv || ln -s $PWD/.zshenv $HOME/
+test -f $HOME/.dir_colors || ln -s $PWD/.dir_colors $HOME/
+
+# zsh antigen plugin manager
+test -f $HOME/.antigen.zsh || ln -s $PWD/antigen.zsh $HOME/.antigen.zsh
+
+# vim-plug
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+test -f $HOME/.vimrc || ln -s $PWD/.vimrc $HOME/
+
+# Add Void source packages
+mkdir $HOME/src
+cd $HOME/src
+git clone https://github.com/void-linux/void-packages.git
+cd void-packages
+./xbps-src binary-bootstrap
+
+# Allow installing "nonfree" packages
+echo XBPS_ALLOW_RESTRICTED=yes >> etc/conf
+
+# Install Vivaldi browser
+if [ -z "$(xpkg | grep vivaldi)" ]; then
+    ./xbps-src pkg vivaldi
+    sudo xbps-install --repository hostdir/binpkgs/nonfree vivaldi
+fi
+
+cd ..
+
+echo "Make sure to run :PlugInstall when you run vim for the first time"

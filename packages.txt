@@ -1,0 +1,52 @@
+# Packages installed via install, lines starting with # are ignored
+
+# Tiling window manager for Wayland
+sway
+
+# Text editor
+vim
+
+# Feature rich Shell
+zsh
+
+# Seat Manager required for Sway (depends DBUS)
+elogind
+
+# Collect of utilities for the xbps package manger
+xtools
+
+# Trace system calls and signals
+strace
+
+# GPU based terminal
+alacritty
+
+# Google Noto fonts
+noto-fonts-ttf
+
+# Application launcher
+dmenu
+
+# DNS utils such as drill
+ldns
+
+# Password manager
+keepassxc
+
+# Synchronize files and folders
+nextcloud-client
+
+# Inspect open files and much much more
+lsof
+
+# Adjust color temp of screen
+gammastep
+
+# NTP Daemon 
+chrony
+
+# Advanced system & process monitor
+atop
+
+# Graphic card driver
+mesa-dri

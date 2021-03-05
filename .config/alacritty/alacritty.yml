@@ -1,0 +1,11 @@
+import:
+  - /home/kofrezo/.config/alacritty/nord.yml
+
+font:
+  family: Noto Sans
+  style: Regular
+  size: 11.0
+
+window:
+  decorations: none
+
