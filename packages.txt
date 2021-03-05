@@ -50,3 +50,6 @@ atop
 
 # Graphic card driver
 mesa-dri
+
+# Load and unload environment variables depending on the current directory
+direnv
