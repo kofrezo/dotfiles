@@ -69,4 +69,7 @@ fi
 
 cd ..
 
+# zsh ssh-agent plugins needs this directory
+mkdir -p $HOME/.ssh
+
 echo "Make sure to run :PlugInstall when you run vim for the first time"
