@@ -56,3 +56,6 @@ direnv
 
 # Database of directories you use most from the commandline (e.g. j foo)
 autojump
+
+# View images from the command line
+catimg
