@@ -51,6 +51,16 @@ test -f $HOME/.antigen.zsh || ln -s $PWD/antigen.zsh $HOME/.antigen.zsh
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 test -f $HOME/.vimrc || ln -s $PWD/.vimrc $HOME/
 
+# zsh ssh-agent plugins needs this directory
+mkdir -p $HOME/.ssh
+
+# Install thefuck application: Fixes typos by entering fuck
+sudo pip install thefuck
+
+# Install latest Noto Color Emoji font
+test -L $HOME/.fonts || ln -s $PWD/.fonts $HOME/.fonts
+fc-cache -fv
+
 # Add Void source packages
 mkdir $HOME/src
 cd $HOME/src
@@ -66,13 +76,5 @@ if [ -z "$(xpkg | grep vivaldi)" ]; then
     ./xbps-src pkg vivaldi
     sudo xbps-install --repository hostdir/binpkgs/nonfree vivaldi
 fi
-
-cd ..
-
-# zsh ssh-agent plugins needs this directory
-mkdir -p $HOME/.ssh
-
-# Install thefuck application: Fixes typos by entering fuck
-sudo pip install thefuck
 
 echo "Make sure to run :PlugInstall when you run vim for the first time"

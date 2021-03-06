@@ -16,3 +16,4 @@ antigen bundle timer
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen apply
 
+PROMPT=$'\n(%!)-(%/)-(@%y)\n(%F{cyan}%n%f@%F{cyan}%M%f)-(%(?.%F{green}%?%f.%F{red}%?%f))-(%*)-(🐧) '

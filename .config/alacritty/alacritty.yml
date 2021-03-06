@@ -2,10 +2,15 @@ import:
   - /home/kofrezo/.config/alacritty/nord.yml
 
 font:
-  family: Noto Sans
+  family: Noto Color Emoji
   style: Regular
   size: 11.0
 
 window:
   decorations: none
+  padding:
+    x: 10
+    y: 10
 
+scrolling:
+  history: 100000
