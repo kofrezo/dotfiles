@@ -205,7 +205,13 @@ bar {
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %R:%S CW%W'; do sleep 1; done
+    status_command /usr/bin/bumblebee-status \
+        -m spotify progress kernel sensors nic memory cpu date time \
+        -p time.format="%R:%S CW%W" \
+        -p date.format="%Y-%m-%d" \
+        -p progress.placeholder="" \
+        -p progress.format="{cmd} {percentage}% {speed}" \
+        -t nord-powerline
 
     colors {
 	    background #434c5e

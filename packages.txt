@@ -85,3 +85,23 @@ tcpdump
 # Screen lock application
 swaylock
 
+# Alternative bar to swaybar
+bumblebee-status
+
+# font required by bumblebee-status theme to display icons
+font-awesome
+
+# Required by the sensors module of bumblebee-status
+sensors
+
+# Required by the progress module of bumblebee-status
+progress
+
+# Required by the spotify module of bumblebee-status
+python-dbus
+
+# Terminal multiplexer
+tmux
+
+# Display ASCII messages with funny animals
+cowsay
