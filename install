@@ -61,6 +61,9 @@ sudo pip install thefuck
 test -L $HOME/.fonts || ln -s $PWD/.fonts $HOME/.fonts
 fc-cache -fv
 
+# This is where backup and swp files of vim go
+mkdir -p $HOME/.cache/vim
+
 # Add Void source packages
 mkdir $HOME/src
 cd $HOME/src
