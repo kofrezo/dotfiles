@@ -12,3 +12,5 @@ let g:lightline = {
 " Insert spaces when pressing tab
 set expandtab
 
+" Show a colored column at 80 characters as inidcator
+set colorcolumn=80
