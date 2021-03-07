@@ -105,3 +105,11 @@ tmux
 
 # Display ASCII messages with funny animals
 cowsay
+
+# Audioserver - It makes sound you know ...
+pulseaudio
+pactl
+pavucontrol
+
+# Bluetooth support
+bluez
