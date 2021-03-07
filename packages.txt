@@ -68,3 +68,16 @@ ipython
 
 # Python package manager
 python3-pip
+
+# Concatentate and redirect sockets: BSD variant not GNU! 
+#
+# No strong reason here. I am just used to the openbsd one and it has some
+# nice features like keeping connections open etc.
+#
+openbsd-netcat
+
+# Network exploration tools and security / port scanner
+nmap
+
+# Dump traffic on a network
+tcpdump
