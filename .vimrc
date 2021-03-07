@@ -8,3 +8,7 @@ set laststatus=2
 let g:lightline = {
     \'colorscheme': 'nord',
     \}
+
+" Insert spaces when pressing tab
+set expandtab
+
