@@ -81,3 +81,11 @@ if [ -z "$(xpkg | grep vivaldi)" ]; then
 fi
 
 echo "Make sure to run :PlugInstall when you run vim for the first time"
+
+echo
+echo "Vivaldi Nord theme settings"
+echo "Background: #2e3440"
+echo "Foreground: #d8dee9"
+echo "Highlight: #81a1c1"
+echo "Accent: #434c5e"
+echo
