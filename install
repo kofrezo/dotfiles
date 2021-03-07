@@ -83,10 +83,20 @@ if [ -z "$(xpkg | grep vivaldi)" ]; then
     sudo xbps-install --repository hostdir/binpkgs/nonfree vivaldi
 fi
 
-echo "Make sure to run :PlugInstall when you run vim for the first time"
+# Install spotify
+if [ -z "$(xpkg | grep spotify)" ]; then
+    ./xbps-src pkg spotify
+    sudo xbps-install --repository hostdir/binpkgs/nonfree spotify
+fi
 
+cowsay -f tux "YaY - Almost done, just some hints left."
+
+echo "Vim"
+echo "- Make sure to run :PlugInstall when you run vim for the first time"
 echo
-echo "Vivaldi Nord theme settings"
+
+echo "Vivaldi"
+echo "- Colors for a theme to make it Nord like:"
 echo "Background: #2e3440"
 echo "Foreground: #d8dee9"
 echo "Highlight: #81a1c1"
