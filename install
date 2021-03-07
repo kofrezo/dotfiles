@@ -28,6 +28,9 @@ test -L $SWAY_CFG_DIR || ln -s $PWD/.config/sway $SWAY_CFG_DIR
 # Background image
 test -f $HOME/.background.png || ln -s $PWD/background.png $HOME/.background.png
 
+# Lock screen image
+test -f $HOME/.swaylock.png || ln -s $PWD/swaylock.png $HOME/.swaylock.png
+
 # Alacritty configuration
 ALACRITTY_CFG_DIR=$XDG_CONFIG_HOME/alacritty
 test -L $ALACRITTY_CFG_DIR || ln -s $PWD/.config/alacritty $ALACRITTY_CFG_DIR

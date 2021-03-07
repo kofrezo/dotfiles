@@ -81,3 +81,7 @@ nmap
 
 # Dump traffic on a network
 tcpdump
+
+# Screen lock application
+swaylock
+

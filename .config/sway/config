@@ -222,4 +222,17 @@ font pango:NotoSans Regular 11
 default_border pixel 1
 gaps inner 10
 
+bindsym $mod+Ctrl+l exec swaylock \
+    --font "Noto Sans" \
+    --font-size 11 \
+    --image $HOME/.swaylock.png \
+    --ring-color "434C5E" \
+    --ring-ver-color "A3BE8C" \
+    --ring-wrong-color "BF616A" \
+    --separator-color "2E3440" \
+    --text-color "D8DEE9" \
+    --inside-ver-color "A3BE8C" \
+    --inside-wrong-color "BF616A" \
+    --key-hl-color "A3BE8C"
+
 include /etc/sway/config.d/*
