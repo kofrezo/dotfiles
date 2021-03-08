@@ -54,7 +54,7 @@ mesa-dri
 # Load and unload environment variables depending on the current directory
 direnv
 
-# Database of directories you use most from the commandline (e.g. j foo)
+# Database of directories you use most from the command line (e.g. j foo)
 autojump
 
 # View images from the command line
@@ -69,9 +69,9 @@ ipython
 # Python package manager
 python3-pip
 
-# Concatentate and redirect sockets: BSD variant not GNU! 
+# Concat and redirect sockets: BSD variant not GNU! 
 #
-# No strong reason here. I am just used to the openbsd one and it has some
+# No strong reason here. I am just used to the OpenBSD one and it has some
 # nice features like keeping connections open etc.
 #
 openbsd-netcat
@@ -106,7 +106,7 @@ tmux
 # Display ASCII messages with funny animals
 cowsay
 
-# Audioserver - It makes sound you know ...
+# Audio (server) - It makes sound you know ...
 pulseaudio
 pactl
 pavucontrol

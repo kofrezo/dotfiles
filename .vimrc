@@ -9,7 +9,7 @@ let g:lightline = {
     \'colorscheme': 'nord',
     \}
 
-" Show a colored column at 80 characters as inidcator
+" Show a colored column at 80 characters as indicator
 set colorcolumn=80
 
 " New lines inherit the indentation of previous lines
@@ -53,13 +53,13 @@ set cursorline
 " Show line numbers on the left sidebar
 set number
 
-" Flash thescreen instead of beeping on errors
+" Flash the screen instead of beeping on errors
 set visualbell
 
 " Display a confirmation dialog when closing an unsaved file
 set confirm
 
-" Direcoty where *.swp files are saved to
+" Directory where *.swp files are saved to
 set dir=~/.cache/vim
 
 " Directory where backup files are saved to
