@@ -49,17 +49,20 @@ chsh -s /bin/zsh $(whoami)
 rm ~/.bash*
 
 # Setup zsh
-test -f $HOME/.zshrc || ln -s $PWD/.zshrc $HOME/
-test -f $HOME/.zlogin || ln -s $PWD/.zlogin $HOME/
-test -f $HOME/.zshenv || ln -s $PWD/.zshenv $HOME/
-test -f $HOME/.dir_colors || ln -s $PWD/.dir_colors $HOME/
+test -L $HOME/.zshrc || ln -s $PWD/.zshrc $HOME/
+test -L $HOME/.zlogin || ln -s $PWD/.zlogin $HOME/
+test -L $HOME/.zshenv || ln -s $PWD/.zshenv $HOME/
+test -L $HOME/.dir_colors || ln -s $PWD/.dir_colors $HOME/
 
 # zsh antigen plugin manager
-test -f $HOME/.antigen.zsh || ln -s $PWD/antigen.zsh $HOME/.antigen.zsh
+test -L $HOME/.antigen.zsh || ln -s $PWD/antigen.zsh $HOME/.antigen.zsh
 
-# vim-plug
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-test -f $HOME/.vimrc || ln -s $PWD/.vimrc $HOME/
+# Vim plugin manager (basically downloads GitHub repositories)
+test -L $HOME/.vim/autoload/plug.vim || ln -s $PWD/.vim/autoload/plug.vim \
+    $HOME/.vim/autoload/plug.vim
+
+# Vim configuration
+test -L $HOME/.vimrc || ln -s $PWD/.vimrc $HOME/
 
 # zsh ssh-agent plugins needs this directory
 mkdir -p $HOME/.ssh
