@@ -58,6 +58,7 @@ test -L $HOME/.dir_colors || ln -s $PWD/.dir_colors $HOME/
 test -L $HOME/.antigen.zsh || ln -s $PWD/antigen.zsh $HOME/.antigen.zsh
 
 # Vim plugin manager (basically downloads GitHub repositories)
+mkdir -p $HOME/.vim/autoload
 test -L $HOME/.vim/autoload/plug.vim || ln -s $PWD/.vim/autoload/plug.vim \
     $HOME/.vim/autoload/plug.vim
 
