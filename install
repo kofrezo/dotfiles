@@ -103,6 +103,7 @@ cowsay -f tux "YaY - Almost done, just some hints left."
 
 echo "Vim"
 echo "- Make sure to run :PlugInstall when you run vim for the first time"
+echo "- You may want to review the plugins in .vimrc at GitHub before install"
 echo
 
 echo "Vivaldi"
