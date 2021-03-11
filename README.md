@@ -1,45 +1,47 @@
 # Spotify
 
-There is a community developed Nord theme for Spotify which can be applied
-using spicetify-cli.
+I decided to not automatically install and apply the Nord theme for Spotify
+because it might not be everybody's first choice and the installer would
+download things and execute them in (new) local system in the manner of 
+curl | sh.
 
-It is straight forward to install but I decided to leave it out of the
-automatic installer because it downloads scripts from the repository directly
-and pipes them to the shell and there is enough magic already in the other
-setup like vim and zsh with Plug and antigen.
+Obviously all the things here are downloaded from somewhere from void 
+packages to the vim plugins but I tried to make an educated decision on each
+source and tried to keep them to a minimum and choose things that are 
+maintained for a long time - I was unsure about Spicetify.
 
-But I leave some instructions here so you can do it manually.
+However here are some instructions to install and apply the Spotify Nord theme.
 
-    # Install spicetify-cli
+    # Install spicetify-cli which allows you to theme Spotify
     curl -fsSL https://raw.githubusercontent.com/khanhas/spicetify-cli/master/install.sh | sh
 
-    # Download spicetify themes
+    # Download the pre made spicetify themes
     cd $HOME/src
     git clone https://github.com/morpheusthewhite/spicetify-themes.git
 
-    # Copy Nord theme
+    # Make Nord theme available to spicetify-cli
     mkdir -p $HOME/.config/spicetify/Themes
     cd spicetify-themes
     cp -r Nord $HOME/.config/spicetify/Themes
 
-    # Allow spicetify to write into spotify directory
+    # Allow spicetify-cli to write to the Spotify directory
     sudo chmod a+wr /usr/libexec/spotify
     sudo chmod a+wr /usr/libexec/spotify/Apps -R
 
-    # Adjust path for spotify
+    # Give spicetify-cli the hint where to find Spotify
     vim $HOME.config/spicetify/config.ini
     > spotify_path            = /usr/libexec/spotify
 
-    # Apply Nord theme
+    # Now apply the Nord theme using spicetify-cli
     cd $HOME/spicetify-cli
     ./spicetify config current_theme Nord
     ./spicetify config apply
 
-    # Clean this mess up
+    # Remove spicetify-cli. We only need it once
     rm -rf $HOME/spicetify-cli
 
-You may check the projects for details if something does not work out-of-the
-box.
+If things are outdated or you want to get into more details checkout the 
+repositories documentation and don't forget to give them a star.
 
 - https://github.com/khanhas/spicetify-cli
 - https://github.com/morpheusthewhite/spicetify-themes

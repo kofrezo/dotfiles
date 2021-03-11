@@ -94,7 +94,7 @@ if [ -z "$(xpkg | grep vivaldi)" ]; then
     sudo xbps-install --repository hostdir/binpkgs/nonfree vivaldi
 fi
 
-# Install spotify
+# Install Spotify
 if [ -z "$(xpkg | grep spotify)" ]; then
     ./xbps-src pkg spotify
     sudo xbps-install --repository hostdir/binpkgs/nonfree spotify
