@@ -1,0 +1,5 @@
+configuration {
+	modi: "drun";
+	theme: "~/.config/rofi/base16-nord.rasi";
+    font: "Noto Sans Regular 11";
+}

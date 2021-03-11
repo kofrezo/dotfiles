@@ -32,6 +32,10 @@ sudo usermod -a -G bluetooth $USER
 SWAY_CFG_DIR=$XDG_CONFIG_HOME/sway
 test -L $SWAY_CFG_DIR || ln -s $PWD/.config/sway $SWAY_CFG_DIR
 
+# Link rofi configuration the dmenu replacement
+ROFI_CFG_DIR=$XDG_CONFIG_HOME/rofi
+test -L $ROFI_CFG_DIR || ln -s $PWD/.config/rofi $ROFI_CFG_DIR
+
 # Background image
 test -f $HOME/.background.png || ln -s $PWD/background.png $HOME/.background.png
 
