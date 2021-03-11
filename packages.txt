@@ -2,6 +2,8 @@
 
 # Tiling window manager for Wayland
 sway
+swaylock
+swayidle
 
 # Text editor
 vim
@@ -81,9 +83,6 @@ nmap
 
 # Dump traffic on a network
 tcpdump
-
-# Screen lock application
-swaylock
 
 # Alternative bar to swaybar
 bumblebee-status
