@@ -115,3 +115,6 @@ bluez
 
 # A window switcher, Application launcher and dmenu replacement
 rofi
+
+# Cron daemon
+cronie
