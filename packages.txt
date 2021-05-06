@@ -118,3 +118,6 @@ rofi
 
 # Cron daemon
 cronie
+
+# Docker: Handy for development
+docker

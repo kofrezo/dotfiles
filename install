@@ -21,6 +21,9 @@ test -d /var/service/bluetoothd || sudo ln -s /etc/sv/bluetoothd /var/service/
 # Start cron service on boot
 test -d /var/service/cronie || sudo ln -s /etc/sv/cronie /var/service/
 
+# Start docker daemon on boot
+test -d /var/service/docker || sudo ln -s /etc/sv/docker /var/service/
+
 # Update font settings
 sudo xbps-reconfigure fontconfig
 
@@ -32,6 +35,9 @@ sudo usermod -a -G audio $USER
 
 # Put user to group necessary for bluetooth to work
 sudo usermod -a -G bluetooth $USER
+
+# Put user to group to allow to control docker
+sudo usermod -a -G docker $USER
 
 # Link sway configuration
 SWAY_CFG_DIR=$XDG_CONFIG_HOME/sway
