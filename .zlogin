@@ -13,5 +13,5 @@ if [ "$(tty)" = "/dev/tty1" ]; then
     test -f $HOME/.sway.log.1 && rm $HOME/.sway.log.1
     test -f $HOME/.sway.log && cp $HOME/.sway.log $HOME/.sway.log.1
 
-    exec dbus-run-session -- sway $@ 2>&1 | tee -a $HOME/.sway.log
+    exec dbus-run-session -- sway $@ 2>&1 >> $HOME/.sway.log
 fi
