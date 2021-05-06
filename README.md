@@ -29,13 +29,13 @@ However here are some instructions to install and apply the Spotify Nord theme.
     sudo chmod a+wr /usr/libexec/spotify/Apps -R
 
     # Give spicetify-cli the hint where to find Spotify
-    vim $HOME.config/spicetify/config.ini
+    vim $HOME/.config/spicetify/config.ini
     > spotify_path            = /usr/libexec/spotify
 
     # Now apply the Nord theme using spicetify-cli
     cd $HOME/spicetify-cli
     ./spicetify config current_theme Nord
-    ./spicetify config apply
+    ./spicetify apply
 
     # Remove spicetify-cli. We only need it once
     rm -rf $HOME/spicetify-cli
