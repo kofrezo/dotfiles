@@ -123,3 +123,15 @@ docker
 
 # Logging daemon
 socklog-void
+
+# pyenv: Managing multiple Python versions
+base-devel
+bzip2-devel
+openssl
+openssl-devel
+readline
+readline-devel
+sqlite-devel
+xz
+zlib
+zlib-devel

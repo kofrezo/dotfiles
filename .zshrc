@@ -16,4 +16,9 @@ antigen bundle timer
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen apply
 
+# pyenv
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
 PROMPT=$'\n(%!)-(%/)-(@%y)\n(%F{cyan}%n%f@%F{cyan}%M%f)-(%(?.%F{green}%?%f.%F{red}%?%f))-(%*)-(🐧) '

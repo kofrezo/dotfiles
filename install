@@ -126,6 +126,9 @@ fi
 test -L /var/service/agetty-hvc0 && sudo unlink /var/service/agetty-hvc0
 test -L /var/service/agetty-hvsi0 && sudo unlink /var/service/agetty-hvsi0
 
+# Pyenv setup
+test -d $HOME/.pyenv || git clone https://github.com/pyenv/pyenv.git $HOME/.pyenv
+
 cowsay -f tux "YaY - Almost done, just some hints left."
 
 echo "Vim"
