@@ -1,4 +1,6 @@
-# Spotify
+# Additional Software
+
+## Spotify
 
 I decided to not automatically install and apply the Nord theme for Spotify
 because it might not be everybody's first choice and the installer would
@@ -45,3 +47,15 @@ repositories documentation and don't forget to give them a star.
 
 - https://github.com/khanhas/spicetify-cli
 - https://github.com/morpheusthewhite/spicetify-themes
+
+
+## Poetry
+
+Python dependency management and packaging made easy. 
+
+A great tool to manage Python projects and IMHO the successor of pip and 
+Pipfile. But the installing shell scripts from the Internet so I'll leave that
+up to everyone on his own.
+
+* [Installation](https://python-poetry.org/docs/)
+
