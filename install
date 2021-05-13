@@ -6,7 +6,7 @@
 
 export XDG_CONFIG_HOME="$HOME/.config"
 
-sudo xbps-install $(grep -o '^[^#]*' packages.txt | tr '\n' ' ')
+sudo xbps-install -y $(grep -o '^[^#]*' packages.txt | tr '\n' ' ')
 
 # Enable NTP Daemon on boot
 test -d /var/service/ntpd || sudo ln -s /etc/sv/ntpd /var/service/
@@ -24,6 +24,10 @@ test -d /var/service/cronie || sudo ln -s /etc/sv/cronie /var/service/
 # Start docker daemon on boot
 test -d /var/service/docker || sudo ln -s /etc/sv/docker /var/service/
 
+# Enable logging daemon
+test -d /var/service/socklog-unix || sudo ln -s /etc/sv/socklog-unix /var/service
+test -d /var/service/nanoklogd || sudo ln -s /etc/sv/nanoklogd /var/service
+
 # Update font settings
 sudo xbps-reconfigure fontconfig
 
@@ -38,6 +42,9 @@ sudo usermod -a -G bluetooth $USER
 
 # Put user to group to allow to control docker
 sudo usermod -a -G docker $USER
+
+# Allow current user to access logs
+sudo usermod -a -G socklog $USER
 
 # Link sway configuration
 SWAY_CFG_DIR=$XDG_CONFIG_HOME/sway
