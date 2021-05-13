@@ -122,6 +122,10 @@ if [ -z "$(xpkg | grep spotify)" ]; then
     sudo xbps-install --repository hostdir/binpkgs/nonfree spotify
 fi
 
+# We are not a Hypervisor: https://www.reddit.com/r/voidlinux/comments/h90d2x/
+test -L /var/service/agetty-hvc0 && sudo unlink /var/service/agetty-hvc0
+test -L /var/service/agetty-hvsi0 && sudo unlink /var/service/agetty-hvsi0
+
 cowsay -f tux "YaY - Almost done, just some hints left."
 
 echo "Vim"
