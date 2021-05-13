@@ -50,7 +50,7 @@ bindsym $mod+Ctrl+l exec swaylock $sway_params
 # Example configuration:
 #
 exec swayidle -w \
-    timeout 300 "swaylock -f " \
+    timeout 300 "swaylock -f  $sway_params" \
     before-sleep "swaylock -f $sway_params"
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
