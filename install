@@ -129,6 +129,12 @@ test -L /var/service/agetty-hvsi0 && sudo unlink /var/service/agetty-hvsi0
 # Pyenv setup
 test -d $HOME/.pyenv || git clone https://github.com/pyenv/pyenv.git $HOME/.pyenv
 
+# Git setup
+if [ ! -f "$HOME/.git-exclude" ]; then
+    echo ".idea/" >> $HOME/.git-exclude
+    git config --global core.excludesfile ~/.git-exclude
+fi
+
 cowsay -f tux "YaY - Almost done, just some hints left."
 
 echo "Vim"
