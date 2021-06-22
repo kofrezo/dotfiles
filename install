@@ -1,9 +1,20 @@
-#!/bin/sh -x
+#!/bin/sh
+
+echo "Applying dotfiles ..."
+echo
+echo "Tip: Add -x to the shebang to debug if the script fails"
+echo
+
+
+echo "[*] Checking permissions"
+sudo echo -n
 
 export XDG_CONFIG_HOME="$HOME/.config"
 
-sudo xbps-install -y $(grep -o '^[^#]*' packages.txt | tr '\n' ' ')
+echo "[*] Installing packages from packages.txt"
+sudo xbps-install -y $(grep -o '^[^#]*' packages.txt | tr '\n' ' ') >> /dev/null
 
+echo "[*] Enabling services to start on boot"
 # Enable NTP Daemon on boot
 test -d /var/service/ntpd || sudo ln -s /etc/sv/ntpd /var/service/
 
@@ -21,9 +32,11 @@ test -d /var/service/cronie || sudo ln -s /etc/sv/cronie /var/service/
 test -d /var/service/socklog-unix || sudo ln -s /etc/sv/socklog-unix /var/service
 test -d /var/service/nanoklogd || sudo ln -s /etc/sv/nanoklogd /var/service
 
+echo "[*] Updating fonts"
 # Update font settings
-sudo xbps-reconfigure fontconfig
+sudo xbps-reconfigure fontconfig >> /dev/null
 
+echo "[*] Adding user to additional groups"
 # Put user to group necessary for sway to work
 sudo usermod -a -G input $USER
 
@@ -39,6 +52,7 @@ sudo usermod -a -G docker $USER
 # Allow current user to access logs
 sudo usermod -a -G socklog $USER
 
+echo "[*] Linking dotfiles"
 # Link sway configuration
 SWAY_CFG_DIR=$XDG_CONFIG_HOME/sway
 test -L $SWAY_CFG_DIR || ln -s $PWD/.config/sway $SWAY_CFG_DIR
@@ -57,11 +71,11 @@ test -f $HOME/.swaylock.png || ln -s $PWD/swaylock.png $HOME/.swaylock.png
 ALACRITTY_CFG_DIR=$XDG_CONFIG_HOME/alacritty
 test -L $ALACRITTY_CFG_DIR || ln -s $PWD/.config/alacritty $ALACRITTY_CFG_DIR
 
+echo "[*] Setting default shell to ZSH"
 # Set default shell to zsh
-chsh -s /bin/zsh $(whoami)
-
-# Remove left overs
-rm ~/.bash*
+if [ "$(getent passwd $LOGNAME | cut -d: -f 7)" != "/bin/zsh" ]; then 
+    chsh -s /bin/zsh $(whoami)
+fi
 
 # Setup zsh
 test -L $HOME/.zshrc || ln -s $PWD/.zshrc $HOME/
@@ -84,36 +98,14 @@ test -L $HOME/.vimrc || ln -s $PWD/.vimrc $HOME/
 mkdir -p $HOME/.ssh
 
 # Install thefuck application: Fixes typos by entering fuck
-sudo pip install thefuck
+pip install thefuck > /dev/null
 
 # Install latest Noto Color Emoji font
 test -L $HOME/.fonts || ln -s $PWD/.fonts $HOME/.fonts
-fc-cache -fv
+fc-cache -f
 
 # This is where backup and swp files of vim go
 mkdir -p $HOME/.cache/vim
-
-# Add Void source packages
-mkdir $HOME/src
-cd $HOME/src
-git clone https://github.com/void-linux/void-packages.git
-cd void-packages
-./xbps-src binary-bootstrap
-
-# Allow installing "nonfree" packages
-echo XBPS_ALLOW_RESTRICTED=yes >> etc/conf
-
-# Install Vivaldi browser
-if [ -z "$(xpkg | grep vivaldi)" ]; then
-    ./xbps-src pkg vivaldi
-    sudo xbps-install --repository hostdir/binpkgs/nonfree vivaldi
-fi
-
-# Install Spotify
-if [ -z "$(xpkg | grep spotify)" ]; then
-    ./xbps-src pkg spotify
-    sudo xbps-install --repository hostdir/binpkgs/nonfree spotify
-fi
 
 # We are not a Hypervisor: https://www.reddit.com/r/voidlinux/comments/h90d2x/
 test -L /var/service/agetty-hvc0 && sudo unlink /var/service/agetty-hvc0
@@ -128,6 +120,31 @@ if [ ! -f "$HOME/.git-exclude" ]; then
     git config --global core.excludesfile ~/.git-exclude
 fi
 
+
+echo "[*] Download void source packages"
+# Add Void source packages
+test -d $HOME/src || mkdir $HOME/src
+cd $HOME/src
+test -d void-packages || git clone https://github.com/void-linux/void-packages.git
+cd void-packages
+./xbps-src binary-bootstrap
+
+# Allow installing "nonfree" packages
+echo XBPS_ALLOW_RESTRICTED=yes >> etc/conf
+
+echo "[*] Installing third party software (nonfree)"
+# Install Vivaldi browser
+if [ -z "$(xpkg | grep vivaldi)" ]; then
+    ./xbps-src pkg vivaldi
+    sudo xbps-install --repository hostdir/binpkgs/nonfree vivaldi
+fi
+
+# Install Spotify
+if [ -z "$(xpkg | grep spotify)" ]; then
+    ./xbps-src pkg spotify
+    sudo xbps-install --repository hostdir/binpkgs/nonfree spotify
+fi
+
 cowsay -f tux "YaY - Almost done, just some hints left."
 
 echo "Editor: Vim"
@@ -139,6 +156,7 @@ echo "Password Safe: Keepassxc"
 echo "- Enable browser integration in the settings if you like"
 echo "- Enable SSH agent integration in the settings if you like"
 echo "- Enable Secret Service Integration in the settings if you like"
+echo
 
 echo "Browser: Vivaldi"
 echo "- Colors for a theme to make it Nord like:"
@@ -146,4 +164,7 @@ echo "Background: #2e3440"
 echo "Foreground: #d8dee9"
 echo "Highlight: #81a1c1"
 echo "Accent: #434c5e"
+echo
+
+echo "Checkout REAMDE.md for how to setup spotify with Nord theme and more"
 echo
