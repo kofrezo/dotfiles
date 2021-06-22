@@ -1,7 +1,5 @@
 #!/bin/sh -x
 
-# @TODO add explanatory comments for keepassxc setup (SSH Agent + Secret Service)
-
 export XDG_CONFIG_HOME="$HOME/.config"
 
 sudo xbps-install -y $(grep -o '^[^#]*' packages.txt | tr '\n' ' ')
@@ -132,12 +130,17 @@ fi
 
 cowsay -f tux "YaY - Almost done, just some hints left."
 
-echo "Vim"
+echo "Editor: Vim"
 echo "- Make sure to run :PlugInstall when you run vim for the first time"
 echo "- You may want to review the plugins in .vimrc at GitHub before install"
 echo
 
-echo "Vivaldi"
+echo "Password Safe: Keepassxc"
+echo "- Enable browser integration in the settings if you like"
+echo "- Enable SSH agent integration in the settings if you like"
+echo "- Enable Secret Service Integration in the settings if you like"
+
+echo "Browser: Vivaldi"
 echo "- Colors for a theme to make it Nord like:"
 echo "Background: #2e3440"
 echo "Foreground: #d8dee9"
