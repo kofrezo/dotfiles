@@ -1,6 +1,5 @@
 #!/bin/sh -x
 
-# @TODO add service for nextcloud client (automatic) start
 # @TODO add explanatory comments for keepassxc setup (SSH Agent + Secret Service)
 
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -19,9 +18,6 @@ test -d /var/service/bluetoothd || sudo ln -s /etc/sv/bluetoothd /var/service/
 
 # Start cron service on boot
 test -d /var/service/cronie || sudo ln -s /etc/sv/cronie /var/service/
-
-# Start docker daemon on boot
-test -d /var/service/docker || sudo ln -s /etc/sv/docker /var/service/
 
 # Enable logging daemon
 test -d /var/service/socklog-unix || sudo ln -s /etc/sv/socklog-unix /var/service

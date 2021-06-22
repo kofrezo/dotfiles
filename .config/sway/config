@@ -48,6 +48,9 @@ bindsym $mod+Ctrl+l exec swaylock $sway_params
 # Adjust screen temperature
 exec wlsunset -l 53.4 -L 9.6
 
+# Start nextcloud client synchronisation
+exec nextcloud --background
+
 ### Idle configuration
 #
 # Example configuration:

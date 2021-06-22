@@ -35,8 +35,10 @@ ldns
 # Password manager
 keepassxc
 
-# Synchronize files and folders
+# Synchronize files and folders. libsecret is required to be able to
+# safe the credentials for the server in secret service (keepassxc)
 nextcloud-client
+libsecret
 
 # Inspect open files and much much more
 lsof
