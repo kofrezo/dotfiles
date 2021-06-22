@@ -42,7 +42,7 @@ nextcloud-client
 lsof
 
 # Adjust color temp of screen
-gammastep
+wlsunset
 
 # NTP Daemon 
 chrony

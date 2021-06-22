@@ -1,6 +1,5 @@
 #!/bin/sh -x
 
-# @TODO Fix gammastep
 # @TODO add service for nextcloud client (automatic) start
 # @TODO add explanatory comments for keepassxc setup (SSH Agent + Secret Service)
 
